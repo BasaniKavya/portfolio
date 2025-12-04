@@ -125,4 +125,31 @@ section { padding: 80px 40px; text-align: center; }
   transition: 0.3s;
 }
 .download-popup-btn:hover { background: #e60073; }
+/* ===== Mobile Responsive ===== */
+@media (max-width: 900px) {
+  header { padding: 14px 20px; }
+  nav a { margin-left: 12px; font-size: 15px; }
+  section { padding: 60px 18px; }
+
+  .home h2 { font-size: 24px; }
+  .home p { font-size: 15px; }
+  .resume-btn { padding: 10px 18px; font-size: 16px; }
+
+  .project-grid { grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); }
+  .card { padding: 20px; }
+  .popup-content { width: 92%; padding: 18px; }
+  .popup iframe { height: 360px; }
+}
+
+@media (max-width: 480px) {
+  /* hide desktop nav for now — we'll add mobile nav later */
+  nav { display: none; }
+  header { justify-content: space-between; }
+  .home h2 { font-size: 20px; }
+  .resume-btn { width: 100%; padding: 12px; }
+  .project-grid { gap: 12px; }
+  .popup iframe { height: 300px; }
+}
+
+
 
