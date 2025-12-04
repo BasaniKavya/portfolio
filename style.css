@@ -189,3 +189,16 @@ button:hover,
   .resume-btn { width: 100%; padding: 14px; }
   .popup iframe { height: 75vh; }
 }
+.typing {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 12px;
+  color: #ff4da6;
+  min-height: 35px;
+}
+@media (max-width: 600px) {
+  .typing {
+    font-size: 20px;
+  }
+}
+
