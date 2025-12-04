@@ -259,6 +259,40 @@ button:hover,
     font-size: 20px;
   }
 }
+/* SKILLS SECTION */
+#skills {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+#skills h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.skill {
+  background: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 17px;
+  transition: 0.3s;
+}
+
+.skill:hover {
+  background: black;
+  transform: scale(1.08);
+  cursor: pointer;
+}
+
+
 
 
 
