@@ -267,30 +267,19 @@ button:hover,
 
 #skills h2 {
   font-size: 32px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
-.skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
+.skills-line {
+  font-size: 20px;
+  line-height: 34px;
+  max-width: 900px;
+  margin: auto;
+  color: #ff4fa3; /* pink theme */
+  font-weight: 600;
 }
 
-.skill {
-  background: #007bff;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 25px;
-  font-size: 17px;
-  transition: 0.3s;
-}
 
-.skill:hover {
-  background: black;
-  transform: scale(1.08);
-  cursor: pointer;
-}
 
 
 
