@@ -115,6 +115,16 @@ function openProject(title, desc, tech, live="", code="") {
 function closeProjectPopup() {
   document.getElementById("projectPopup").style.display = "none";
 }
+function openCertPopup(title, link) {
+  document.getElementById("certTitle").innerText = title;
+  document.getElementById("certFrame").src = link;
+  document.getElementById("certPopup").style.display = "flex";
+}
+
+function closeCertPopup() {
+  document.getElementById("certPopup").style.display = "none";
+}
+
 
 
 
