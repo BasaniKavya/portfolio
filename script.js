@@ -92,6 +92,14 @@ function revealOnScroll() {
 }
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
+// Mobile Navigation
+const mobileNav = document.querySelector(".mobile-nav");
+function toggleMenu() {
+  mobileNav.style.display =
+    mobileNav.style.display === "flex" ? "none" : "flex";
+}
+
+
 
 
 
