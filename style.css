@@ -86,16 +86,31 @@ button:hover,
   margin-top: 40px;
 }
 .card {
-  background: #1a1a1a;
-  padding: 30px;
-  border-radius: 10px;
-  border: 1px solid #ff4da6;
-  transition: 0.3s;
+  background: linear-gradient(145deg, #151515, #0d0d0d);
+  padding: 32px;
+  border-radius: 12px;
+  border: 2px solid #ff4da6;
+  transition: 0.45s ease;
+  box-shadow: 0 0 0px rgba(255, 77, 166, 0);
+  cursor: pointer;
 }
+
+/* Hover Neon Glow Effect */
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 18px rgba(255, 92, 159, 0.45);
+  transform: translateY(-6px) scale(1.02);
+  border-color: #ff69b4;
+  box-shadow: 
+    0 0 15px rgba(255, 77, 166, 0.7),
+    0 0 25px rgba(255, 77, 166, 0.4),
+    0 0 45px rgba(255, 77, 166, 0.2);
 }
+
+/* Hover smooth brightness */
+.card:hover {
+  background: linear-gradient(145deg, #1a1a1a, #101010);
+}
+
+  
 
 /* CONTACT FORM */
 .contact-form {
@@ -244,5 +259,6 @@ button:hover,
     font-size: 20px;
   }
 }
+
 
 
