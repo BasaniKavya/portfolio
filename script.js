@@ -30,6 +30,27 @@ function reveal() {
 
 window.addEventListener("scroll", reveal);
 reveal();
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(section => {
+    let top = window.scrollY;
+    if (top >= section.offsetTop - 150) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(a => {
+    a.classList.remove("active");
+    if (a.getAttribute("href").includes(current)) {
+      a.classList.add("active");
+    }
+  });
+});
+
+
 
 
 
