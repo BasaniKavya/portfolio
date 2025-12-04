@@ -82,6 +82,29 @@
 
   </div>
 </section>
+  <section id="certificates" class="certificates reveal">
+  <h2>Certificates & Achievements</h2>
+
+  <div class="cert-grid">
+
+    <div class="cert-card" onclick="openCertPopup(
+      'Python Certification',
+      'https://certificatelink_here'
+    )">Python Certification</div>
+
+    <div class="cert-card" onclick="openCertPopup(
+      'Web Development Bootcamp',
+      'https://certificatelink_here'
+    )">Web Development Bootcamp</div>
+
+    <div class="cert-card" onclick="openCertPopup(
+      'HTML & CSS Course',
+      'https://certificatelink_here'
+    )">HTML & CSS Course</div>
+
+  </div>
+</section>
+
   <!-- CONTACT SECTION -->
   <section id="contact" class="contact reveal">
     <h2>Contact Me</h2>
@@ -124,6 +147,14 @@
     <a id="projCode" class="download-popup-btn" target="_blank">💻 Source Code</a>
   </div>
 </div>
+<div id="certPopup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closeCertPopup()">&times;</span>
+    <h3 id="certTitle"></h3>
+    <iframe id="certFrame" src="" style="width:100%; height:450px; border:none;"></iframe>
+  </div>
+</div>
+
 
 
 
