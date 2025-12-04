@@ -98,6 +98,25 @@ function toggleMenu() {
   mobileNav.style.display =
     mobileNav.style.display === "flex" ? "none" : "flex";
 }
+function openProject(title, desc, tech, live="", code="") {
+  document.getElementById("projTitle").innerText = title;
+  document.getElementById("projDesc").innerText = desc;
+  document.getElementById("projTech").innerText = tech;
+
+  document.getElementById("projLive").style.display = live ? "inline-block" : "none";
+  document.getElementById("projCode").style.display = code ? "inline-block" : "none";
+
+  document.getElementById("projLive").href = live;
+  document.getElementById("projCode").href = code;
+
+  document.getElementById("projectPopup").style.display = "flex";
+}
+
+function closeProjectPopup() {
+  document.getElementById("projectPopup").style.display = "none";
+}
+
+
 
 
 
