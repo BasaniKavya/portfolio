@@ -11,3 +11,4 @@ window.onclick = function(e) {
   const popup = document.getElementById("resumePopup");
   if (e.target === popup) popup.style.display = "none";
 }
+
