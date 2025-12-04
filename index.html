@@ -48,15 +48,40 @@
 </section>
   <!-- PROJECT SECTION -->
   <section id="projects" class="projects reveal">
-    <h2>My Projects</h2>
-    <div class="project-grid">
-      <div class="card">Portfolio Website</div>
-      <div class="card">Online Calculator</div>
-      <div class="card">Weather App</div>
-      <div class="card">Python Quiz App</div>
-    </div>
-  </section>
+  <h2>My Projects</h2>
+  <div class="project-grid">
 
+    <div class="card" onclick="openProject(
+      'Portfolio Website',
+      'Personal portfolio built using HTML, CSS, JS with resume preview popup.',
+      'HTML, CSS, JavaScript',
+      'https://basanikavya.github.io/portfolio/',
+      'https://github.com/BasaniKavya/portfolio'
+    )">Portfolio Website</div>
+
+    <div class="card" onclick="openProject(
+      'Online Calculator',
+      'A simple responsive calculator with clean UI and dark mode.',
+      'HTML, CSS, JavaScript',
+      ''
+    )">Online Calculator</div>
+
+    <div class="card" onclick="openProject(
+      'Weather App',
+      'Weather forecast app using OpenWeather API.',
+      'HTML, CSS, JavaScript, API',
+      ''
+    )">Weather App</div>
+
+    <div class="card" onclick="openProject(
+      'Python Quiz App',
+      'A multiple-choice quiz program with score & timer.',
+      'Python',
+      ''
+    )">Python Quiz App</div>
+
+  </div>
+</section>
   <!-- CONTACT SECTION -->
   <section id="contact" class="contact reveal">
     <h2>Contact Me</h2>
@@ -88,4 +113,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
