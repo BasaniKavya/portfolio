@@ -302,6 +302,67 @@ button:hover,
   transform: translateY(-4px);
   box-shadow: 0 0 12px rgba(255, 92, 159, 0.4);
 }
+.about {
+  padding: 90px 40px;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.about-img {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ff4da6;
+  box-shadow: 0 0 15px rgba(255, 92, 159, 0.5);
+}
+
+.about-text {
+  max-width: 520px;
+  text-align: left;
+}
+
+.about-text h2 {
+  margin-bottom: 12px;
+  font-size: 32px;
+  color: #ff4da6;
+}
+
+.about-text p {
+  font-size: 18px;
+  color: #ffb6d9;
+  line-height: 1.6;
+}
+
+.social-links {
+  margin-top: 20px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  background: #ff4da6;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  background: #ff5c9f;
+  box-shadow: 0 0 12px rgba(255, 92, 159, 0.5);
+  transform: translateY(-2px);
+}
+
+
 
 
 
