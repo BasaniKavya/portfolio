@@ -8,45 +8,46 @@
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
+<!-- HEADER -->
+<header>
   <h1 class="logo">Kavya <span>Basani</span></h1>
 
-  <!-- Desktop Nav -->
+  <!-- Desktop Navigation -->
   <nav class="desktop-nav">
     <a href="#home">Home</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
     <a href="#about">About</a>
-
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-  <!-- Hamburger Button -->
+  <!-- Mobile Menu Button -->
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-  <!-- Mobile Nav -->
+  <!-- Mobile Navigation -->
   <div class="mobile-nav">
     <a href="#home" onclick="toggleMenu()">Home</a>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#skills" onclick="toggleMenu()">Skills</a>
     <a href="#projects" onclick="toggleMenu()">Projects</a>
+    <a href="#certificates" onclick="toggleMenu()">Certificates</a>
     <a href="#contact" onclick="toggleMenu()">Contact</a>
-    <a href="#about">About</a>
-
   </div>
 </header>
 
-  <!-- HOME SECTION -->
-  <section id="home" class="home reveal">
-    <h2>Hello 👋 I'm <span>Kavya Basani</span></h2>
-    <h3 class="typing"></h3>
-    <p>Electronics student & Web Developer skilled in HTML, CSS, JavaScript & Python.</p>
+<!-- HOME SECTION -->
+<section id="home" class="home reveal">
+  <h2>Hello 👋 I'm <span>Kavya Basani</span></h2>
+  <h3 class="typing"></h3>
+  <p>Electronics student & Web Developer skilled in HTML, CSS, JavaScript & Python.</p>
+  <button class="resume-btn" onclick="openResumePopup()">📄 View Resume</button>
+</section>
 
-    <button class="resume-btn" onclick="openResumePopup()">📄 View Resume</button>
-  </section>
-  <section id="about" class="about reveal">
+<!-- ABOUT SECTION -->
+<section id="about" class="about reveal">
   <div class="about-container">
-    
-    <img src="profile.jpg" alt="Kavya Basani" class="about-img">
-
+    <img src="assets/profile.jpg" alt="Kavya Basani" class="about-img">
     <div class="about-text">
       <h2>About Me</h2>
       <p>
@@ -54,7 +55,6 @@
         building beautiful, modern and responsive websites. Along with development,
         I enjoy learning new technologies and improving my problem-solving skills.
       </p>
-
       <div class="social-links">
         <a href="https://www.linkedin.com/" target="_blank">🔗 LinkedIn</a>
         <a href="https://github.com/BasaniKavya" target="_blank">💻 GitHub</a>
@@ -64,16 +64,14 @@
   </div>
 </section>
 
-
-  <!-- ⭐ SKILLS SECTION ⭐ -->
-  <section id="skills" class="skills reveal">
+<!-- SKILLS -->
+<section id="skills" class="skills reveal">
   <h2>Skills</h2>
-  <p class="skills-line">
-    HTML, CSS, JavaScript, Python, C Programming, Git & GitHub, DSA (Basics), VLSI Basics
-  </p>
+  <p class="skills-line">HTML, CSS, JavaScript, Python, C Programming, Git & GitHub, DSA Basics, VLSI Basics</p>
 </section>
-  <!-- PROJECT SECTION -->
-  <section id="projects" class="projects reveal">
+
+<!-- PROJECTS -->
+<section id="projects" class="projects reveal">
   <h2>My Projects</h2>
   <div class="project-grid">
 
@@ -83,34 +81,47 @@
       'HTML, CSS, JavaScript',
       'https://basanikavya.github.io/portfolio/',
       'https://github.com/BasaniKavya/portfolio'
-    )">Portfolio Website</div>
+    )">
+      <img src="assets/portfolio.png" alt="">
+      <h3>Portfolio Website</h3>
+    </div>
 
     <div class="card" onclick="openProject(
       'Online Calculator',
-      'A simple responsive calculator with clean UI and dark mode.',
+      'A responsive calculator with dark mode.',
       'HTML, CSS, JavaScript',
       ''
-    )">Online Calculator</div>
+    )">
+      <img src="assets/onlinecalculator.png" alt="">
+      <h3>Online Calculator</h3>
+    </div>
 
     <div class="card" onclick="openProject(
       'Weather App',
       'Weather forecast app using OpenWeather API.',
       'HTML, CSS, JavaScript, API',
       ''
-    )">Weather App</div>
+    )">
+      <img src="assets/weatherapp.png" alt="">
+      <h3>Weather App</h3>
+    </div>
 
     <div class="card" onclick="openProject(
       'Python Quiz App',
       'A multiple-choice quiz program with score & timer.',
       'Python',
       ''
-    )">Python Quiz App</div>
+    )">
+      <img src="assets/pythonquizapp.png" alt="">
+      <h3>Python Quiz App</h3>
+    </div>
 
   </div>
 </section>
-  <section id="certificates" class="certificates reveal">
-  <h2>Certificates & Achievements</h2>
 
+<!-- CERTIFICATES -->
+<section id="certificates" class="certificates reveal">
+  <h2>Certificates & Achievements</h2>
   <div class="cert-grid">
 
     <div class="cert-card" onclick="openCertPopup(
@@ -131,37 +142,31 @@
   </div>
 </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="contact reveal">
-    <h2>Contact Me</h2>
-    <p>Feel free to reach out 👇</p>
+<!-- CONTACT -->
+<section id="contact" class="contact reveal">
+  <h2>Contact Me</h2>
+  <p>Feel free to reach out 👇</p>
+  <form action="https://formsubmit.co/basanikavya6@gmail.com" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+    <input type="hidden" name="_subject" value="New message from Kavya's Portfolio">
+    <input type="hidden" name="_captcha" value="false">
+  </form>
+</section>
 
-    <form action="https://formsubmit.co/basanikavya6@gmail.com" method="POST" class="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-
-      <input type="hidden" name="_subject" value="New message from Kavya's Portfolio">
-      <input type="hidden" name="_captcha" value="false">
-    </form>
-  </section>
-
-  <!-- RESUME POPUP -->
-  <div id="resumePopup" class="popup">
-    <div class="popup-content">
-      <span class="close" onclick="closeResumePopup()">&times;</span>
-      <h3>Kavya Basani — Resume Preview</h3>
-      <iframe src="https://drive.google.com/file/d/1k2yOcXYPGUZd-S5YlTcCPSscrDEUeywA/preview"></iframe>
-
-      <a href="https://drive.google.com/uc?export=download&id=1k2yOcXYPGUZd-S5YlTcCPSscrDEUeywA"
-         class="download-popup-btn" target="_blank">⬇ Download Resume</a>
-    </div>
+<!-- POPUPS (Correct Position) -->
+<div id="resumePopup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closeResumePopup()">&times;</span>
+    <h3>Kavya Basani — Resume Preview</h3>
+    <iframe src="https://drive.google.com/file/d/1k2yOcXYPGUZd-S5YlTcCPSscrDEUeywA/preview"></iframe>
+    <a href="https://drive.google.com/uc?export=download&id=1k2yOcXYPGUZd-S5YlTcCPSscrDEUeywA"
+       class="download-popup-btn" target="_blank">⬇ Download Resume</a>
   </div>
+</div>
 
-  <script src="script.js"></script>
-</body>
-</html>
 <div id="projectPopup" class="popup">
   <div class="popup-content">
     <span class="close" onclick="closeProjectPopup()">&times;</span>
@@ -173,6 +178,7 @@
     <a id="projCode" class="download-popup-btn" target="_blank">💻 Source Code</a>
   </div>
 </div>
+
 <div id="certPopup" class="popup">
   <div class="popup-content">
     <span class="close" onclick="closeCertPopup()">&times;</span>
@@ -181,9 +187,6 @@
   </div>
 </div>
 
-
-
-
-
-
-
+<script src="script.js"></script>
+</body>
+</html>
