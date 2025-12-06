@@ -125,19 +125,30 @@ function closeCertPopup() {
   document.getElementById("certPopup").style.display = "none";
 }
 // ===== SUCCESS POPUP =====
+function openSuccessPopup() {
+  const popup = document.getElementById("successPopup");
+  popup.style.display = "flex";
+
+  // Auto-close after 3 sec
+  setTimeout(() => {
+    popup.style.display = "none";
+  }, 3000);
+}
+
+// Detect ?success=true after form submit redirect
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
-
-  // Check if redirected after successful submit
   if (urlParams.get("success") === "true") {
-    document.getElementById("successPopup").classList.add("active");
+    openSuccessPopup();
   }
 });
 
-// Close popup function
+// Close popup manually
 function closeSuccessPopup() {
-  document.getElementById("successPopup").classList.remove("active");
+  document.getElementById("successPopup").style.display = "none";
 }
+
+
 
 
 
