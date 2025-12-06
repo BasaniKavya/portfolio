@@ -408,6 +408,38 @@ button:hover,
   from { transform: scale(0.8); opacity: 0; }
   to   { transform: scale(1); opacity: 1; }
 }
+.popup-home-btn {
+  display: inline-block;
+  margin-top: 18px;
+  background: #ff4da6;
+  padding: 10px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: 0.25s;
+}
+
+.popup-home-btn:hover {
+  background: #ff5c9f;
+  box-shadow: 0 0 12px rgba(255, 92, 159, 0.7);
+}
+
+/* Neon glow animation */
+#successPopup .popup-content {
+  animation: popupScale 0.35s ease-in-out, glowEffect 1.6s infinite alternate;
+}
+
+@keyframes glowEffect {
+  from {
+    box-shadow: 0 0 15px rgba(255, 92, 159, 0.4);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(255, 92, 159, 0.9);
+  }
+}
+
+
 
 
 
