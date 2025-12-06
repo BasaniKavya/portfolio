@@ -154,16 +154,15 @@
 <section id="contact" class="contact reveal">
   <h2>Contact Me</h2>
   <p>Feel free to reach out 👇</p>
-  <form action="https://formsubmit.co/basanikavya6@gmail.com" method="POST" class="contact-form">
+  <form id="contactForm" class="contact-form">
+  <input type="hidden" name="access_key" value="6e913260-9b6e-457f-974d-2cb993475cc7">
+
   <input type="text" name="name" placeholder="Your Name" required>
   <input type="email" name="email" placeholder="Your Email" required>
   <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-  <button type="submit">Send Message</button>
 
-  <input type="hidden" name="_subject" value="New message from Kavya's Portfolio">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="https://basanikavya.github.io/portfolio/?success=true">
-</form>
+  <button type="submit">Send Message</button>
+</form> 
 </section>
 
 <!-- POPUPS (Correct Position) -->
@@ -209,6 +208,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
