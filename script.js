@@ -1,25 +1,25 @@
+// ===== Resume Popup =====
 function openResumePopup() {
   document.getElementById("resumePopup").style.display = "flex";
 }
-
 function closeResumePopup() {
   document.getElementById("resumePopup").style.display = "none";
 }
 
-// Close popup if user clicks outside box
-window.onclick = function(e) {
+// Close popup when clicking outside
+window.addEventListener("click", function(e) {
   const popup = document.getElementById("resumePopup");
   if (e.target === popup) popup.style.display = "none";
-}
+});
+
+
 // ===== Scroll Reveal Animation =====
 function reveal() {
   let reveals = document.querySelectorAll(".reveal");
-
   for (let i = 0; i < reveals.length; i++) {
     let windowHeight = window.innerHeight;
     let revealTop = reveals[i].getBoundingClientRect().top;
     let revealPoint = 120;
-
     if (revealTop < windowHeight - revealPoint) {
       reveals[i].classList.add("active");
     } else {
@@ -27,9 +27,11 @@ function reveal() {
     }
   }
 }
-
 window.addEventListener("scroll", reveal);
 reveal();
+
+
+// ===== Active Nav Highlight on Scroll =====
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav a");
 
@@ -49,8 +51,10 @@ window.addEventListener("scroll", () => {
     }
   });
 });
-// Typing Animation
-const roles = ["ECE Student", "Web Designer"];
+
+
+// ===== Typing Animation =====
+const roles = ["Web Developer", "ECE Student", "Programmer"];
 let roleIndex = 0;
 let charIndex = 0;
 const typingElement = document.querySelector(".typing");
@@ -61,7 +65,7 @@ function typeEffect() {
     charIndex++;
     setTimeout(typeEffect, 120);
   } else {
-    setTimeout(eraseEffect, 1500);
+    setTimeout(eraseEffect, 1300);
   }
 }
 
@@ -75,30 +79,19 @@ function eraseEffect() {
     setTimeout(typeEffect, 400);
   }
 }
-
 typeEffect();
-// Scroll Reveal Animation
-function revealOnScroll() {
-  let reveals = document.querySelectorAll(".reveal");
-  for (let i = 0; i < reveals.length; i++) {
-    let windowHeight = window.innerHeight;
-    let revealTop = reveals[i].getBoundingClientRect().top;
-    let revealPoint = 120;
 
-    if (revealTop < windowHeight - revealPoint) {
-      reveals[i].classList.add("active");
-    }
-  }
-}
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
-// Mobile Navigation
+
+// ===== Mobile Navigation =====
 const mobileNav = document.querySelector(".mobile-nav");
 function toggleMenu() {
   mobileNav.style.display =
     mobileNav.style.display === "flex" ? "none" : "flex";
 }
-function openProject(title, desc, tech, live="", code="") {
+
+
+// ===== Project Popup =====
+function openProject(title, desc, tech, live = "", code = "") {
   document.getElementById("projTitle").innerText = title;
   document.getElementById("projDesc").innerText = desc;
   document.getElementById("projTech").innerText = tech;
@@ -111,58 +104,40 @@ function openProject(title, desc, tech, live="", code="") {
 
   document.getElementById("projectPopup").style.display = "flex";
 }
-
 function closeProjectPopup() {
   document.getElementById("projectPopup").style.display = "none";
 }
+
+
+// ===== Certificate Popup =====
 function openCertPopup(title, link) {
   document.getElementById("certTitle").innerText = title;
   document.getElementById("certFrame").src = link;
   document.getElementById("certPopup").style.display = "flex";
 }
-
 function closeCertPopup() {
   document.getElementById("certPopup").style.display = "none";
 }
+
+
 // ===== SUCCESS POPUP =====
 function openSuccessPopup() {
   const popup = document.getElementById("successPopup");
   popup.style.display = "flex";
 
-  // Auto-close after 3 sec
+  // Auto close in 3 sec
   setTimeout(() => {
     popup.style.display = "none";
   }, 3000);
 }
 
-// Detect ?success=true after form submit redirect
+// Trigger popup only after form redirect
 document.addEventListener("DOMContentLoaded", () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get("success") === "true") {
-    openSuccessPopup();
-  }
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("success") === "true") openSuccessPopup();
 });
 
-// Close popup manually
+// Manual close
 function closeSuccessPopup() {
   document.getElementById("successPopup").style.display = "none";
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
