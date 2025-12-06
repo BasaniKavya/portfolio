@@ -154,19 +154,18 @@
 <section id="contact" class="contact reveal">
   <h2>Contact Me</h2>
   <p>Feel free to reach out 👇</p>
-  <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-  
-  <input type="hidden" name="access_key" value="6e913260-9b6e-457f-974d-2cb993475cc7">
-  <input type="hidden" name="subject" value="New message from Kavya's Portfolio">
-  <input type="hidden" name="from_name" value="Portfolio Contact Form">
-
+  <form action="https://formsubmit.co/basanikavya6@gmail.com" method="POST" class="contact-form">
   <input type="text" name="name" placeholder="Your Name" required>
   <input type="email" name="email" placeholder="Your Email" required>
   <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-
   <button type="submit">Send Message</button>
 
-  <input type="hidden" name="redirect" value="https://web3forms.com/success">
+  <!-- Email settings -->
+  <input type="hidden" name="_subject" value="Portfolio Contact – New Message">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="box">
+  <input type="hidden" name="_next" value="https://basanikavya.github.io/portfolio/success.html">
+  <input type="hidden" name="_autoresponse" value="Thank you for reaching out! I will reply soon. — Kavya">
 </form>
 </section>
 
@@ -204,6 +203,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
