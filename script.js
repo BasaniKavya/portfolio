@@ -124,19 +124,22 @@ function openCertPopup(title, link) {
 function closeCertPopup() {
   document.getElementById("certPopup").style.display = "none";
 }
-// Success popup
-function openSuccessPopup() {
-  document.getElementById("successPopup").style.display = "flex";
+// ===== SUCCESS POPUP =====
+document.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  // Check if redirected after successful submit
+  if (urlParams.get("success") === "true") {
+    document.getElementById("successPopup").classList.add("active");
+  }
+});
+
+// Close popup function
+function closeSuccessPopup() {
+  document.getElementById("successPopup").classList.remove("active");
 }
 
-function closePopup() {
-  document.getElementById("successPopup").style.display = "none";
-}
 
-// Detect redirect after successful form submit
-if (window.location.search.includes("success=true")) {
-  setTimeout(() => openSuccessPopup(), 300);
-}
 
 
 
