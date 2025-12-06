@@ -154,3 +154,57 @@ document.getElementById("contactForm").addEventListener("submit", async function
     alert("❌ Something went wrong. Try again later.");
   }
 });
+/* ===== Mobile UI Improved ===== */
+const menuBtn = document.querySelector(".menu-btn");
+const mobileNavPanel = document.querySelector(".mobile-nav");
+const bodyWrapper = document.querySelector("body");
+
+function toggleMenu() {
+  mobileNavPanel.classList.toggle("active");
+  document.querySelector("header").classList.toggle("blur-bg");
+  document.querySelector("#home").classList.toggle("blur-bg");
+  document.querySelector("#about").classList.toggle("blur-bg");
+  document.querySelector("#skills").classList.toggle("blur-bg");
+  document.querySelector("#projects").classList.toggle("blur-bg");
+  document.querySelector("#certificates").classList.toggle("blur-bg");
+  document.querySelector("#contact").classList.toggle("blur-bg");
+}
+
+/* Close menu when clicking a link */
+document.querySelectorAll(".mobile-nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    mobileNavPanel.classList.remove("active");
+    document.querySelectorAll(".blur-bg").forEach(e => e.classList.remove("blur-bg"));
+  });
+});
+/* ===== GitHub Auto-Fetch Projects ===== */
+async function loadRepos() {
+  const username = "BasaniKavya"; // Your GitHub username
+  const repoContainer = document.getElementById("repoProjects");
+
+  try {
+    const res = await fetch(`https://api.github.com/users/${username}/repos`);
+    const repos = await res.json();
+
+    repoContainer.innerHTML = ""; // Clear loading text
+
+    repos
+      .filter(repo => !repo.fork) // Skip forked repos
+      .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at)) // Recent first
+      .slice(0, 6) // Only 6 latest projects
+      .forEach(repo => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <h3>${repo.name}</h3>
+          <p>${repo.description ?? "No description available"}</p>
+          <a href="${repo.html_url}" target="_blank" class="download-popup-btn">🔗 View on GitHub</a>
+        `;
+        repoContainer.appendChild(card);
+      });
+  } catch (err) {
+    repoContainer.innerHTML = "<p>⚠ Unable to load GitHub projects</p>";
+  }
+}
+loadRepos();
+
