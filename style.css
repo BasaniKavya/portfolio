@@ -482,6 +482,28 @@ button:hover,
     grid-template-columns: repeat(1, 1fr);
   }
 }
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+.project-card a {
+  color: #00eaff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
 
 
 
