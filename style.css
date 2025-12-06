@@ -438,6 +438,52 @@ button:hover,
     box-shadow: 0 0 30px rgba(255, 92, 159, 0.9);
   }
 }
+/* Mobile screen optimization */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  section {
+    padding: 50px 20px;
+  }
+
+  .project-card {
+    width: 100%;
+    margin: 12px 0;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-container img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  h1, h2, h3 {
+    font-size: 22px;
+  }
+
+  .skills-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
 
 
 
