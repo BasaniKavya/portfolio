@@ -154,14 +154,20 @@
 <section id="contact" class="contact reveal">
   <h2>Contact Me</h2>
   <p>Feel free to reach out 👇</p>
-  <form action="https://formsubmit.co/basanikavya6@gmail.com" method="POST" class="contact-form">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-    <input type="hidden" name="_subject" value="New message from Kavya's Portfolio">
-    <input type="hidden" name="_captcha" value="false">
-  </form>
+  <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+  
+  <!-- Web3Forms Access Key -->
+  <input type="hidden" name="access_key" value="6e913260-9b6e-457f-974d-2cb993475cc7">
+
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+
+  <!-- Optional redirect page -->
+  <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+  <button type="submit">Send Message</button>
+</form>  
 </section>
 
 <!-- POPUPS (Correct Position) -->
@@ -198,4 +204,5 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
