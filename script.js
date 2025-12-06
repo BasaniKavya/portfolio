@@ -7,7 +7,7 @@ function closeResumePopup() {
 }
 
 // Close popup when clicking outside
-window.addEventListener("click", function(e) {
+window.addEventListener("click", function (e) {
   const popup = document.getElementById("resumePopup");
   if (e.target === popup) popup.style.display = "none";
 });
@@ -124,20 +124,33 @@ function closeCertPopup() {
 function openSuccessPopup() {
   const popup = document.getElementById("successPopup");
   popup.style.display = "flex";
-
-  // Auto close in 3 sec
   setTimeout(() => {
     popup.style.display = "none";
   }, 3000);
 }
-
-// Trigger popup only after form redirect
-document.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  if (params.get("success") === "true") openSuccessPopup();
-});
-
-// Manual close
 function closeSuccessPopup() {
   document.getElementById("successPopup").style.display = "none";
 }
+
+
+// ===== WEB3FORMS SUBMIT HANDLER =====
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  const response = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    body: formData
+  });
+
+  const result = await response.json();
+
+  if (result.success) {
+    openSuccessPopup();
+    form.reset();
+  } else {
+    alert("❌ Something went wrong. Try again later.");
+  }
+});
