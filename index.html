@@ -20,7 +20,6 @@
 <header>
   <h1 class="logo">Kavya <span>Basani</span></h1>
 
-  <!-- Desktop Navigation -->
   <nav class="desktop-nav">
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -30,10 +29,8 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- Mobile Menu Button -->
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-  <!-- Mobile Navigation -->
   <div class="mobile-nav">
     <a href="#home" onclick="toggleMenu()">Home</a>
     <a href="#about" onclick="toggleMenu()">About</a>
@@ -44,7 +41,7 @@
   </div>
 </header>
 
-<!-- HOME SECTION -->
+<!-- HOME -->
 <section id="home" class="home reveal">
   <h2>Hello 👋 I'm <span>Kavya Basani</span></h2>
   <h3 class="typing"></h3>
@@ -52,16 +49,15 @@
   <button class="resume-btn" onclick="openResumePopup()">📄 View Resume</button>
 </section>
 
-<!-- ABOUT SECTION -->
+<!-- ABOUT -->
 <section id="about" class="about reveal">
   <div class="about-container">
     <img src="assets/profile.jpg" alt="Kavya Basani" class="about-img">
     <div class="about-text">
       <h2>About Me</h2>
       <p>
-        I'm Kavya Basani, an ECE student and passionate Web Developer who loves
-        building beautiful, modern and responsive websites. Along with development,
-        I enjoy learning new technologies and improving my problem-solving skills.
+        I'm an ECE student and passionate Web Developer who loves
+        building beautiful & responsive websites and exploring new technologies.
       </p>
       <div class="social-links">
         <a href="https://www.linkedin.com/" target="_blank">🔗 LinkedIn</a>
@@ -80,99 +76,48 @@
 
 <!-- PROJECTS -->
 <section id="projects" class="projects reveal">
-  <h2>My Projects</h2>
-  <div class="project-grid">
-
-    <div class="card" onclick="openProject(
-      'Portfolio Website',
-      'Personal portfolio built using HTML, CSS, JS with resume preview popup.',
-      'HTML, CSS, JavaScript',
-      'https://basanikavya.github.io/portfolio/',
-      'https://github.com/BasaniKavya/portfolio'
-    )">
-      <img src="assets/portfolio.png" alt="">
-      <h3>Portfolio Website</h3>
-    </div>
-
-    <div class="card" onclick="openProject(
-      'Online Calculator',
-      'A responsive calculator with dark mode.',
-      'HTML, CSS, JavaScript',
-      ''
-    )">
-      <img src="assets/onlinecalculator.png" alt="">
-      <h3>Online Calculator</h3>
-    </div>
-
-    <div class="card" onclick="openProject(
-      'Weather App',
-      'Weather forecast app using OpenWeather API.',
-      'HTML, CSS, JavaScript, API',
-      ''
-    )">
-      <img src="assets/weatherapp.png" alt="">
-      <h3>Weather App</h3>
-    </div>
-
-    <div class="card" onclick="openProject(
-      'Python Quiz App',
-      'A multiple-choice quiz program with score & timer.',
-      'Python',
-      ''
-    )">
-      <img src="assets/pythonquizapp.png" alt="">
-      <h3>Python Quiz App</h3>
-    </div>
-
-  </div>
+  <h2>My GitHub Projects</h2>
+  <p class="project-note">Projects below are automatically fetched from GitHub 👇</p>
+  <div id="githubProjects" class="project-grid"></div>
 </section>
 
 <!-- CERTIFICATES -->
 <section id="certificates" class="certificates reveal">
   <h2>Certificates & Achievements</h2>
   <div class="cert-grid">
-
-    <div class="cert-card" onclick="openCertPopup(
-      'Python Certification',
-      'https://certificatelink_here'
-    )">Python Certification</div>
-
-    <div class="cert-card" onclick="openCertPopup(
-      'Web Development Bootcamp',
-      'https://certificatelink_here'
-    )">Web Development Bootcamp</div>
-
-    <div class="cert-card" onclick="openCertPopup(
-      'HTML & CSS Course',
-      'https://certificatelink_here'
-    )">HTML & CSS Course</div>
-
+    <div class="cert-card" onclick="openCertPopup('Python Certification','https://certificatelink_here')">Python Certification</div>
+    <div class="cert-card" onclick="openCertPopup('Web Development Bootcamp','https://certificatelink_here')">Web Development Bootcamp</div>
+    <div class="cert-card" onclick="openCertPopup('HTML & CSS Course','https://certificatelink_here')">HTML & CSS Course</div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact reveal">
   <h2>Contact Me</h2>
-  <p>Feel free to reach out 👇</p>
   <form id="contactForm" class="contact-form">
-  <input type="hidden" name="access_key" value="6e913260-9b6e-457f-974d-2cb993475cc7">
-
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="email" placeholder="Your Email" required>
-  <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-
-  <button type="submit">Send Message</button>
-</form> 
+    <input type="hidden" name="access_key" value="6e913260-9b6e-457f-974d-2cb993475cc7">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
 </section>
 
-<!-- POPUPS (Correct Position) -->
+<!-- POPUPS -->
 <div id="resumePopup" class="popup">
   <div class="popup-content">
     <span class="close" onclick="closeResumePopup()">&times;</span>
-    <h3>Kavya Basani — Resume Preview</h3>
+    <h3>Resume Preview</h3>
     <iframe src="https://drive.google.com/file/d/1k2yOcXYPGUZd-S5YlTcCPSscrDEUeywA/preview"></iframe>
-    <a href="https://drive.google.com/uc?export=download&id=1k2yOcXYPGUZd-S5YlTcCPSscrDEUeywA"
-       class="download-popup-btn" target="_blank">⬇ Download Resume</a>
+    <a href="https://drive.google.com/uc?export=download&id=1k2yOcXYPGUZd-S5YlTcCPSscrDEUeywA" target="_blank" class="download-popup-btn">⬇ Download Resume</a>
+  </div>
+</div>
+
+<div id="certPopup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closeCertPopup()">&times;</span>
+    <h3 id="certTitle"></h3>
+    <iframe id="certFrame"></iframe>
   </div>
 </div>
 
@@ -181,41 +126,20 @@
     <span class="close" onclick="closeProjectPopup()">&times;</span>
     <h3 id="projTitle"></h3>
     <p id="projDesc"></p>
-    <p><b>Tech Used:</b> <span id="projTech"></span></p>
     <br>
     <a id="projLive" class="download-popup-btn" target="_blank">🔗 Live Preview</a>
     <a id="projCode" class="download-popup-btn" target="_blank">💻 Source Code</a>
   </div>
 </div>
 
-<div id="certPopup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closeCertPopup()">&times;</span>
-    <h3 id="certTitle"></h3>
-    <iframe id="certFrame" src="" style="width:100%; height:450px; border:none;"></iframe>
-  </div>
-</div>
-  <!-- SUCCESS POPUP -->
 <div id="successPopup" class="popup">
   <div class="popup-content">
-    <span class="close" onclick="closePopup()">&times;</span>
-    <h3>Thank you for contacting me! </h3>
+    <span class="close" onclick="closeSuccessPopup()">&times;</span>
+    <h3>Thank you for contacting me! 🎉</h3>
     <p>Your message has been successfully sent.</p>
-    <a href="#home" class="popup-home-btn">Back to Home</a>
   </div>
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
