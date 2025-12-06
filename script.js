@@ -124,6 +124,21 @@ function openCertPopup(title, link) {
 function closeCertPopup() {
   document.getElementById("certPopup").style.display = "none";
 }
+// Success popup
+function openSuccessPopup() {
+  document.getElementById("successPopup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("successPopup").style.display = "none";
+}
+
+// Detect redirect after successful form submit
+if (window.location.search.includes("success=true")) {
+  setTimeout(() => openSuccessPopup(), 300);
+}
+
+
 
 
 
