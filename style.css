@@ -30,7 +30,6 @@ body {
 h1, h2, h3, p, a {
   color: inherit;
 }
-
 /* THEME TOGGLE BUTTON */
 .theme-toggle {
   position: fixed;
@@ -44,8 +43,12 @@ h1, h2, h3, p, a {
   cursor: pointer;
   box-shadow: 0px 4px 14px rgba(0,0,0,0.3);
   z-index: 999;
+  transition: transform 0.2s, background 0.3s, color 0.3s;
 }
 
+.theme-toggle:hover {
+  transform: scale(1.15);
+}
 /* HEADER */
 header {
   width: 100%;
@@ -392,6 +395,7 @@ button:hover,
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
 
 
 
