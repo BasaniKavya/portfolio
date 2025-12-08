@@ -129,6 +129,7 @@ section { padding: 85px 40px; text-align: center; }
   margin: auto;
   color: #ff4fa3;
 }
+
 /* PROJECTS */
 .projects-grid {
   margin-top: 38px;
@@ -171,6 +172,7 @@ section { padding: 85px 40px; text-align: center; }
   font-weight: bold;
   text-decoration: none;
 }
+
 /* CERTIFICATES */
 .cert-grid {
   margin-top: 35px;
@@ -242,7 +244,7 @@ section { padding: 85px 40px; text-align: center; }
   to   { box-shadow: 0 0 34px rgba(255,92,159,0.85); }
 }
 
-/* REVEAL */
+/* REVEAL SCROLL ANIMATION */
 .reveal {
   opacity: 0;
   transform: translateY(35px);
@@ -253,21 +255,7 @@ section { padding: 85px 40px; text-align: center; }
   transform: translateY(0);
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  header { padding: 14px 22px; }
-  section { padding: 70px 26px; }
-}
-@media (max-width: 600px) {
-  nav { display: none; }
-  .menu-btn { display: block; }
-  .about-text { text-align: center; }
-}
-@media (max-width: 450px) {
-  h1, h2, h3 { font-size: 22px; }
-  section { padding: 60px 20px; }
-}
-/* LOADING ANIMATION */
+/* PRELOADER */
 #preloader {
   position: fixed;
   inset: 0;
@@ -295,73 +283,21 @@ section { padding: 85px 40px; text-align: center; }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes fadeText { from { opacity: .4; } to { opacity: 1; } }
-.project-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  header { padding: 14px 22px; }
+  section { padding: 70px 26px; }
+}
+@media (max-width: 600px) {
+  nav { display: none; }
+  .menu-btn { display: block; }
+  .about-text { text-align: center; }
+}
+@media (max-width: 450px) {
+  h1, h2, h3 { font-size: 22px; }
+  section { padding: 60px 20px; }
 }
 
-.project-card {
-  padding: 20px;
-  border-radius: 12px;
-  background: #111;
-  border: 1px solid #333;
-  transition: 0.3s;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  border-color: #ff4081;
-}
-
-.project-card h3 {
-  margin-bottom: 10px;
-  color: #ff4081;
-}
-
-.project-card p {
-  margin-bottom: 12px;
-}
-.menu-btn {
-  display: none;
-  flex-direction: column;
-  gap: 6px;
-  cursor: pointer;
-}
-
-.menu-btn span {
-  width: 30px;
-  height: 3px;
-  background: white;
-  border-radius: 5px;
-}
-
-/* For Mobile */
-@media(max-width: 850px) {
-  nav ul {
-    position: absolute;
-    top: 70px;
-    right: -100%;
-    width: 200px;
-    background: #111;
-    flex-direction: column;
-    transition: 0.4s ease;
-    padding: 20px;
-    gap: 20px;
-  }
-
-  nav ul.active {
-    right: 0;
-  }
-
-  .menu-btn {
-    display: flex;
-  }
-}
-
-
-
-
-
-
+/* FIX: remove duplicate wrong layout */
+.project-container { display: none; }
