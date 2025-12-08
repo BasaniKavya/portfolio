@@ -33,7 +33,7 @@ reveal();
 
 // ===== Active Nav Highlight on Scroll =====
 const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
+const navA = document.querySelectorAll("nav a");
 
 window.addEventListener("scroll", () => {
   let current = "";
@@ -44,7 +44,7 @@ window.addEventListener("scroll", () => {
     }
   });
 
-  navLinks.forEach(a => {
+  navA.forEach(a => {
     a.classList.remove("active");
     if (a.getAttribute("href").includes(current)) {
       a.classList.add("active");
@@ -83,11 +83,9 @@ typeEffect();
 
 // ===== Mobile Navigation =====
 const mobileNavPanel = document.querySelector(".mobile-nav");
-
 function toggleMenu() {
   mobileNavPanel.classList.toggle("active");
 }
-
 document.querySelectorAll(".mobile-nav a").forEach(link => {
   link.addEventListener("click", () => {
     mobileNavPanel.classList.remove("active");
@@ -155,15 +153,17 @@ document.getElementById("contactForm").addEventListener("submit", async function
     alert("❌ Something went wrong. Try again later.");
   }
 });
-// ===== AUTO FETCH GITHUB PROJECTS =====
+
+
+// ===== AUTO FETCH GITHUB PROJECTS (FIXED) =====
 document.addEventListener("DOMContentLoaded", () => {
-  const projectsContainer = document.getElementById("projects-container");
+  const projectsContainer = document.getElementById("projectsContainer");
 
   fetch("https://api.github.com/users/BasaniKavya/repos")
     .then(res => res.json())
     .then(repos => {
       const filtered = repos
-        .filter(repo => !repo.fork)
+        .filter(repo => !repo.fork && repo.description)
         .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
         .slice(0, 6);
 
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
         card.className = "project-card reveal";
         card.innerHTML = `
           <h3>${repo.name}</h3>
-          <p>${repo.description ? repo.description : "No description provided"}</p>
+          <p>${repo.description}</p>
           <div class="project-links">
             <a href="${repo.html_url}" target="_blank">💻 Code</a>
             ${repo.homepage ? `<a href="${repo.homepage}" target="_blank">🔗 Live</a>` : ""}
@@ -182,49 +182,20 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       reveal();
-    });
+    })
+    .catch(err => console.error("GitHub API Error:", err));
 });
+
+
 // ===== PAGE LOADER =====
 window.addEventListener("load", () => {
   document.getElementById("preloader").style.display = "none";
 });
-// Auto Fetch GitHub Projects
-const githubUsername = "basanikavya";
 
-fetch(`https://api.github.com/users/${githubUsername}/repos`)
-  .then(res => res.json())
-  .then(data => {
-    const projectList = document.getElementById("project-list");
 
-    data
-      .filter(repo => !repo.fork && repo.description) // only real projects
-      .forEach(repo => {
-        const projectCard = document.createElement("div");
-        projectCard.classList.add("project-card");
-
-        projectCard.innerHTML = `
-          <h3>${repo.name}</h3>
-          <p>${repo.description}</p>
-          <a href="${repo.html_url}" target="_blank">🔗 View on GitHub</a>
-        `;
-        projectList.appendChild(projectCard);
-      });
-  })
-  .catch(err => console.error("GitHub API Error:", err));
-// Mobile Menu Toggle
+// ===== Mobile Menu Toggle (for hamburger menu) =====
 const menuBtn = document.querySelector(".menu-btn");
 const navLinks = document.querySelector("nav ul");
-
 menuBtn.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
-
-
-
-
-
-
-
-
-
-
