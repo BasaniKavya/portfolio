@@ -179,3 +179,11 @@ toggle.addEventListener("click", () => {
     localStorage.setItem("theme", "dark");
   }
 });
+// 🔥 Scroll Progress Bar
+window.addEventListener("scroll", () => {
+  let scrollTop = window.scrollY;
+  let docHeight = document.body.scrollHeight - window.innerHeight;
+  let progress = (scrollTop / docHeight) * 100;
+  document.getElementById("scrollProgress").style.width = progress + "%";
+});
+
