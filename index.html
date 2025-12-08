@@ -32,12 +32,12 @@
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
   <div class="mobile-nav">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#certificates">Certificates</a>
-    <a href="#contact">Contact</a>
+    <a href="#home" onclick="toggleMenu()">Home</a>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#skills" onclick="toggleMenu()">Skills</a>
+    <a href="#projects" onclick="toggleMenu()">Projects</a>
+    <a href="#certificates" onclick="toggleMenu()">Certificates</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
   </div>
 </header>
 
@@ -78,7 +78,9 @@
 <section id="projects" class="projects reveal">
   <h2>My GitHub Projects</h2>
   <p class="project-note">Projects below are automatically fetched from GitHub 👇</p>
-  <div id="githubProjects" class="project-grid"></div>
+
+  <!-- 🔥 GitHub Auto-Projects Container -->
+  <div id="projectsContainer" class="project-grid"></div>
 </section>
 
 <!-- CERTIFICATES -->
