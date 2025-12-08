@@ -296,6 +296,104 @@ button:hover,
   background: #007bff;
   z-index: 10000;
 }
+/* 🔥 Certificates Timeline */
+.timeline {
+  position: relative;
+  max-width: 650px;
+  margin: 50px auto;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: #ff4da6;
+  transform: translateX(-50%);
+}
+.timeline-item {
+  width: 50%;
+  padding: 25px;
+  position: relative;
+}
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+.timeline-item h3 {
+  margin-bottom: 6px;
+  color: #ffb6d9;
+}
+.timeline-item p {
+  color: #d8a9c5;
+}
+.circle {
+  width: 20px;
+  height: 20px;
+  background: #ff4da6;
+  border-radius: 50%;
+  position: absolute;
+  top: 18px;
+  left: calc(50% - 10px);
+  box-shadow: 0 0 18px rgba(255, 77, 166, 0.7);
+}
+/* 🌊 Animated Wave Footer */
+.wave-footer {
+  position: relative;
+  background: #0a0a0a;
+  text-align: center;
+  padding: 60px 20px;
+  margin-top: 60px;
+  overflow: hidden;
+}
+.wave-footer h3 {
+  color: #ffb6d9;
+  position: relative;
+  z-index: 10;
+}
+.waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+}
+.wave {
+  position: absolute;
+  width: 200%;
+  height: 120px;
+  background-repeat: repeat-x;
+  background-size: contain;
+  bottom: -10px;
+  animation: animateWave 8s linear infinite;
+  opacity: 0.4;
+}
+.wave1 {
+  background-image: url("https://i.ibb.co/k61ZvN0/wave.png");
+  animation-duration: 6s;
+}
+.wave2 {
+  background-image: url("https://i.ibb.co/k61ZvN0/wave.png");
+  bottom: -18px;
+  animation-duration: 9s;
+  opacity: 0.6;
+}
+.wave3 {
+  background-image: url("https://i.ibb.co/k61ZvN0/wave.png");
+  bottom: -26px;
+  animation-duration: 12s;
+  opacity: 0.8;
+}
+
+@keyframes animateWave {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
 
 
 
