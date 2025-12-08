@@ -68,7 +68,6 @@ function typeEffect() {
     setTimeout(eraseEffect, 1300);
   }
 }
-
 function eraseEffect() {
   if (charIndex > 0) {
     typingElement.innerHTML = roles[roleIndex].substring(0, charIndex - 1);
@@ -83,24 +82,28 @@ typeEffect();
 
 
 // ===== Mobile Navigation =====
-const mobileNav = document.querySelector(".mobile-nav");
+const mobileNavPanel = document.querySelector(".mobile-nav");
+
 function toggleMenu() {
-  mobileNav.style.display =
-    mobileNav.style.display === "flex" ? "none" : "flex";
+  mobileNavPanel.classList.toggle("active");
 }
+
+document.querySelectorAll(".mobile-nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    mobileNavPanel.classList.remove("active");
+  });
+});
 
 
 // ===== Project Popup =====
 function openProject(title, desc, tech, live = "", code = "") {
   document.getElementById("projTitle").innerText = title;
   document.getElementById("projDesc").innerText = desc;
-  document.getElementById("projTech").innerText = tech;
+  document.getElementById("projLive").href = live;
+  document.getElementById("projCode").href = code;
 
   document.getElementById("projLive").style.display = live ? "inline-block" : "none";
   document.getElementById("projCode").style.display = code ? "inline-block" : "none";
-
-  document.getElementById("projLive").href = live;
-  document.getElementById("projCode").href = code;
 
   document.getElementById("projectPopup").style.display = "flex";
 }
@@ -136,7 +139,6 @@ function closeSuccessPopup() {
 // ===== WEB3FORMS SUBMIT HANDLER =====
 document.getElementById("contactForm").addEventListener("submit", async function (e) {
   e.preventDefault();
-
   const form = e.target;
   const formData = new FormData(form);
 
@@ -146,7 +148,6 @@ document.getElementById("contactForm").addEventListener("submit", async function
   });
 
   const result = await response.json();
-
   if (result.success) {
     openSuccessPopup();
     form.reset();
@@ -154,77 +155,8 @@ document.getElementById("contactForm").addEventListener("submit", async function
     alert("❌ Something went wrong. Try again later.");
   }
 });
-/* ===== Mobile UI Improved ===== */
-const menuBtn = document.querySelector(".menu-btn");
-const mobileNavPanel = document.querySelector(".mobile-nav");
-const bodyWrapper = document.querySelector("body");
 
-function toggleMenu() {
-  mobileNavPanel.classList.toggle("active");
-  document.querySelector("header").classList.toggle("blur-bg");
-  document.querySelector("#home").classList.toggle("blur-bg");
-  document.querySelector("#about").classList.toggle("blur-bg");
-  document.querySelector("#skills").classList.toggle("blur-bg");
-  document.querySelector("#projects").classList.toggle("blur-bg");
-  document.querySelector("#certificates").classList.toggle("blur-bg");
-  document.querySelector("#contact").classList.toggle("blur-bg");
-}
 
-/* Close menu when clicking a link */
-document.querySelectorAll(".mobile-nav a").forEach(link => {
-  link.addEventListener("click", () => {
-    mobileNavPanel.classList.remove("active");
-    document.querySelectorAll(".blur-bg").forEach(e => e.classList.remove("blur-bg"));
-  });
-});
-/* ===== GitHub Auto-Fetch Projects ===== */
-async function loadRepos() {
-  const username = "BasaniKavya"; // Your GitHub username
-  const repoContainer = document.getElementById("repoProjects");
-
-  try {
-    const res = await fetch(`https://api.github.com/users/${username}/repos`);
-    const repos = await res.json();
-
-    repoContainer.innerHTML = ""; // Clear loading text
-
-    repos
-      .filter(repo => !repo.fork) // Skip forked repos
-      .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at)) // Recent first
-      .slice(0, 6) // Only 6 latest projects
-      .forEach(repo => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          <h3>${repo.name}</h3>
-          <p>${repo.description ?? "No description available"}</p>
-          <a href="${repo.html_url}" target="_blank" class="download-popup-btn">🔗 View on GitHub</a>
-        `;
-        repoContainer.appendChild(card);
-      });
-  } catch (err) {
-    repoContainer.innerHTML = "<p>⚠ Unable to load GitHub projects</p>";
-  }
-}
-loadRepos();
-const username = "BasaniKavya";
-
-fetch(`https://api.github.com/users/${username}/repos`)
-  .then(res => res.json())
-  .then(data => {
-    const container = document.getElementById("projects-container");
-    data.slice(0, 6).forEach(repo => {   // fetch only 6 latest repos
-      const card = document.createElement("div");
-      card.classList.add("project-card");
-      card.innerHTML = `
-        <h3>${repo.name}</h3>
-        <p>${repo.description ? repo.description : "No description added."}</p>
-        <a href="${repo.html_url}" target="_blank">View on GitHub →</a>
-      `;
-      container.appendChild(card);
-    });
-  })
-  .catch(err => console.error("Error fetching repos:", err));
 // ===== AUTO FETCH GITHUB PROJECTS =====
 document.addEventListener("DOMContentLoaded", () => {
   const projectsContainer = document.getElementById("projectsContainer");
@@ -232,7 +164,11 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("https://api.github.com/users/BasaniKavya/repos")
     .then(res => res.json())
     .then(repos => {
-      const filtered = repos.filter(repo => !repo.fork).slice(0, 6);
+      const filtered = repos
+        .filter(repo => !repo.fork)
+        .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
+        .slice(0, 6); // Load 6 latest repos
+
       filtered.forEach(repo => {
         const card = document.createElement("div");
         card.className = "project-card reveal";
@@ -249,9 +185,3 @@ document.addEventListener("DOMContentLoaded", () => {
       reveal();
     });
 });
-
-
-
-
-
-
