@@ -225,6 +225,32 @@ fetch(`https://api.github.com/users/${username}/repos`)
     });
   })
   .catch(err => console.error("Error fetching repos:", err));
+// ===== AUTO FETCH GITHUB PROJECTS =====
+document.addEventListener("DOMContentLoaded", () => {
+  const projectsContainer = document.getElementById("projectsContainer");
+
+  fetch("https://api.github.com/users/BasaniKavya/repos")
+    .then(res => res.json())
+    .then(repos => {
+      const filtered = repos.filter(repo => !repo.fork).slice(0, 6);
+      filtered.forEach(repo => {
+        const card = document.createElement("div");
+        card.className = "project-card reveal";
+        card.innerHTML = `
+          <h3>${repo.name}</h3>
+          <p>${repo.description ? repo.description : "No description provided"}</p>
+          <div class="project-links">
+            <a href="${repo.html_url}" target="_blank">💻 Code</a>
+            ${repo.homepage ? `<a href="${repo.homepage}" target="_blank">🔗 Live</a>` : ""}
+          </div>
+        `;
+        projectsContainer.appendChild(card);
+      });
+      reveal();
+    });
+});
+
+
 
 
 
