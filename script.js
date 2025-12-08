@@ -2,9 +2,7 @@
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   preloader.style.opacity = "0";
-  setTimeout(() => {
-    preloader.style.display = "none";
-  }, 600);
+  setTimeout(() => preloader.style.display = "none", 600);
 });
 
 /* ================= RESUME POPUP ================= */
@@ -14,21 +12,17 @@ function openResumePopup() {
 function closeResumePopup() {
   document.getElementById("resumePopup").style.display = "none";
 }
-window.addEventListener("click", function (e) {
-  const popup = document.getElementById("resumePopup");
-  if (e.target === popup) popup.style.display = "none";
+window.addEventListener("click", e => {
+  if (e.target.id === "resumePopup") closeResumePopup();
 });
 
 /* ================= SCROLL REVEAL ================= */
 function reveal() {
-  let reveals = document.querySelectorAll(".reveal");
-  for (let r of reveals) {
-    let windowHeight = window.innerHeight;
+  document.querySelectorAll(".reveal").forEach(r => {
+    let windowH = window.innerHeight;
     let revealTop = r.getBoundingClientRect().top;
-    let revealPoint = 120;
-    if (revealTop < windowHeight - revealPoint) r.classList.add("active");
-    else r.classList.remove("active");
-  }
+    r.classList.toggle("active", revealTop < windowH - 120);
+  });
 }
 window.addEventListener("scroll", reveal);
 reveal();
@@ -38,33 +32,31 @@ const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav a");
 window.addEventListener("scroll", () => {
   let current = "";
+  let top = window.scrollY;
+
   sections.forEach(sec => {
-    let top = window.scrollY;
-    if (top >= sec.offsetTop - 150) current = sec.getAttribute("id");
+    if (top >= sec.offsetTop - 150) current = sec.id;
   });
+
   navLinks.forEach(a => {
-    a.classList.remove("active");
-    if (a.getAttribute("href").includes(current)) a.classList.add("active");
+    a.classList.toggle("active", a.getAttribute("href").includes(current));
   });
 });
 
 /* ================= TYPING ANIMATION ================= */
 const roles = ["Web Developer", "ECE Student", "Programmer"];
-let roleIndex = 0;
-let charIndex = 0;
+let roleIndex = 0, charIndex = 0;
 const typingElement = document.querySelector(".typing");
 
 function typeEffect() {
   if (charIndex < roles[roleIndex].length) {
-    typingElement.innerHTML += roles[roleIndex].charAt(charIndex);
-    charIndex++;
+    typingElement.innerHTML += roles[roleIndex][charIndex++];
     setTimeout(typeEffect, 120);
   } else setTimeout(eraseEffect, 1300);
 }
 function eraseEffect() {
   if (charIndex > 0) {
-    typingElement.innerHTML = roles[roleIndex].substring(0, charIndex - 1);
-    charIndex--;
+    typingElement.innerHTML = roles[roleIndex].substring(0, --charIndex);
     setTimeout(eraseEffect, 80);
   } else {
     roleIndex = (roleIndex + 1) % roles.length;
@@ -78,9 +70,9 @@ const mobileNavPanel = document.querySelector(".mobile-nav");
 function toggleMenu() {
   mobileNavPanel.classList.toggle("active");
 }
-document.querySelectorAll(".mobile-nav a").forEach(link => {
-  link.addEventListener("click", () => mobileNavPanel.classList.remove("active"));
-});
+document.querySelectorAll(".mobile-nav a").forEach(link =>
+  link.addEventListener("click", () => mobileNavPanel.classList.remove("active"))
+);
 
 /* ================= PROJECT POPUP ================= */
 function openProject(title, desc, tech, live = "", code = "") {
@@ -119,11 +111,13 @@ function closeSuccessPopup() {
 }
 
 /* ================= CONTACT FORM (WEB3FORMS) ================= */
-document.getElementById("contactForm").addEventListener("submit", async function (e) {
+document.getElementById("contactForm").addEventListener("submit", async e => {
   e.preventDefault();
   const form = e.target;
-  const formData = new FormData(form);
-  const response = await fetch("https://api.web3forms.com/submit", { method: "POST", body: formData });
+  const response = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    body: new FormData(form),
+  });
   const result = await response.json();
   if (result.success) {
     openSuccessPopup();
@@ -138,24 +132,24 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("https://api.github.com/users/BasaniKavya/repos")
     .then(res => res.json())
     .then(repos => {
-      const filtered = repos
+      repos
         .filter(repo => !repo.fork)
         .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
-        .slice(0, 6);
+        .slice(0, 6)
+        .forEach(repo => {
+          const card = document.createElement("div");
+          card.className = "project-card reveal";
+          card.innerHTML = `
+            <h3>${repo.name}</h3>
+            <p>${repo.description || "No description provided"}</p>
+            <div class="project-links">
+              <a href="${repo.html_url}" target="_blank">💻 Code</a>
+              ${repo.homepage ? `<a href="${repo.homepage}" target="_blank">🔗 Live</a>` : ""}
+            </div>
+          `;
+          projectsContainer.appendChild(card);
+        });
 
-      filtered.forEach(repo => {
-        const card = document.createElement("div");
-        card.className = "project-card reveal";
-        card.innerHTML = `
-          <h3>${repo.name}</h3>
-          <p>${repo.description ? repo.description : "No description provided"}</p>
-          <div class="project-links">
-            <a href="${repo.html_url}" target="_blank">💻 Code</a>
-            ${repo?.homepage ? `<a href="${repo.homepage}" target="_blank">🔗 Live</a>` : ""}
-          </div>
-        `;
-        projectsContainer.appendChild(card);
-      });
       reveal();
     });
 });
@@ -164,26 +158,23 @@ document.addEventListener("DOMContentLoaded", () => {
 const toggle = document.getElementById("themeToggle");
 const body = document.body;
 
+// Load saved theme
 if (localStorage.getItem("theme") === "light") {
   body.classList.add("light-mode");
   toggle.textContent = "🌙";
 }
 
+// Toggle theme
 toggle.addEventListener("click", () => {
-  body.classList.toggle("light-mode");
-  if (body.classList.contains("light-mode")) {
-    toggle.textContent = "🌙";
-    localStorage.setItem("theme", "light");
-  } else {
-    toggle.textContent = "☀️";
-    localStorage.setItem("theme", "dark");
-  }
-});
-// 🔥 Scroll Progress Bar
-window.addEventListener("scroll", () => {
-  let scrollTop = window.scrollY;
-  let docHeight = document.body.scrollHeight - window.innerHeight;
-  let progress = (scrollTop / docHeight) * 100;
-  document.getElementById("scrollProgress").style.width = progress + "%";
+  const lightTheme = body.classList.toggle("light-mode");
+  toggle.textContent = lightTheme ? "🌙" : "☀️";
+  localStorage.setItem("theme", lightTheme ? "light" : "dark");
 });
 
+/* ================= SCROLL PROGRESS BAR ================= */
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const width = (scrollTop / docHeight) * 100;
+  document.getElementById("scrollProgress").style.width = width + "%";
+});
