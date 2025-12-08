@@ -155,11 +155,9 @@ document.getElementById("contactForm").addEventListener("submit", async function
     alert("❌ Something went wrong. Try again later.");
   }
 });
-
-
 // ===== AUTO FETCH GITHUB PROJECTS =====
 document.addEventListener("DOMContentLoaded", () => {
-  const projectsContainer = document.getElementById("projectsContainer");
+  const projectsContainer = document.getElementById("projects-container");
 
   fetch("https://api.github.com/users/BasaniKavya/repos")
     .then(res => res.json())
@@ -167,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const filtered = repos
         .filter(repo => !repo.fork)
         .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
-        .slice(0, 6); // Load 6 latest repos
+        .slice(0, 6);
 
       filtered.forEach(repo => {
         const card = document.createElement("div");
@@ -182,6 +180,12 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
         projectsContainer.appendChild(card);
       });
+
       reveal();
     });
 });
+
+
+
+
+
