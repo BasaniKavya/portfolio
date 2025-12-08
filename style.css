@@ -286,5 +286,17 @@ button:hover,
   opacity: 1;
   transform: translateY(0);
 }
+/* 🔥 Scroll Progress Bar */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: #007bff;
+  z-index: 10000;
+}
+
+
 
 
