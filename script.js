@@ -211,6 +211,15 @@ fetch(`https://api.github.com/users/${githubUsername}/repos`)
       });
   })
   .catch(err => console.error("GitHub API Error:", err));
+// Mobile Menu Toggle
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector("nav ul");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+
 
 
 
