@@ -184,6 +184,12 @@ document.addEventListener("DOMContentLoaded", () => {
       reveal();
     });
 });
+// ===== PAGE LOADER =====
+window.addEventListener("load", () => {
+  document.getElementById("preloader").style.display = "none";
+});
+
+
 
 
 
