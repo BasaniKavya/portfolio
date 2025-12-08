@@ -188,6 +188,30 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("load", () => {
   document.getElementById("preloader").style.display = "none";
 });
+// Auto Fetch GitHub Projects
+const githubUsername = "basanikavya";
+
+fetch(`https://api.github.com/users/${githubUsername}/repos`)
+  .then(res => res.json())
+  .then(data => {
+    const projectList = document.getElementById("project-list");
+
+    data
+      .filter(repo => !repo.fork && repo.description) // only real projects
+      .forEach(repo => {
+        const projectCard = document.createElement("div");
+        projectCard.classList.add("project-card");
+
+        projectCard.innerHTML = `
+          <h3>${repo.name}</h3>
+          <p>${repo.description}</p>
+          <a href="${repo.html_url}" target="_blank">🔗 View on GitHub</a>
+        `;
+        projectList.appendChild(projectCard);
+      });
+  })
+  .catch(err => console.error("GitHub API Error:", err));
+
 
 
 
