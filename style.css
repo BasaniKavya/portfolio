@@ -301,3 +301,44 @@ section { padding: 85px 40px; text-align: center; }
 
 /* FIX: remove duplicate wrong layout */
 .project-container { display: none; }
+/* THEME TOGGLE */
+.theme-toggle {
+  font-size: 26px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s;
+}
+.theme-toggle:hover {
+  transform: scale(1.15);
+}
+
+/* LIGHT MODE */
+.light-mode {
+  background: #ffffff;
+  color: #000;
+}
+.light-mode header {
+  background: #fff;
+  border-bottom: 1px solid #ff4da6;
+}
+.light-mode nav a { color: #ff4da6; }
+.light-mode .about-text { color: #5b2f45; }
+
+.light-mode .project-card {
+  background: #fff;
+  border-color: #ff4da6;
+}
+.light-mode .project-card p { color: #444; }
+.light-mode .cert-card { background: #fff; }
+.light-mode .contact-form input,
+.light-mode .contact-form textarea {
+  background: #fff;
+  color: #000;
+}
+
+/* Smooth transition */
+body, header, section, .project-card, .cert-card, .contact-form input, .contact-form textarea {
+  transition: background .35s, color .35s;
+}
+
+
