@@ -802,6 +802,82 @@ section {
     font-size: 13px;
   }
 }
+/* ===========================
+   📱 MOBILE RESPONSIVE FIXES
+   =========================== */
+@media (max-width: 768px) {
+
+  /* Reduce padding and prevent overflow */
+  body {
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  /* Navbar fix */
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  /* Hero section mobile */
+  .home {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .home img {
+    width: 85%;
+    margin-top: 20px;
+  }
+
+  .home-content h1 {
+    font-size: 28px;
+  }
+
+  .home-content p {
+    font-size: 16px;
+  }
+
+  /* About section mobile */
+  .about {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .about img {
+    width: 80%;
+    margin-bottom: 15px;
+  }
+
+  /* Projects section */
+  .projects {
+    padding: 20px;
+  }
+
+  .project-card {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  /* Contact section */
+  .contact {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .contact form {
+    width: 100%;
+  }
+}
+
 
 
 
