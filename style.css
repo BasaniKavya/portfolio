@@ -1,152 +1,290 @@
-/* ============================
-   PREMIUM SCRIPT.JS
-   ============================ */
+/* -------------------------------------------------
+   🌸 PINK + BLACK PREMIUM PORTFOLIO THEME 
+---------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  transition: color 0.3s, background 0.3s;
+}
 
-/* -------------------------------
+body {
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* -------------------------------------------------
    PRELOADER
--------------------------------- */
-window.addEventListener("load", () => {
-    const preloader = document.getElementById("preloader");
-    if (preloader) {
-        setTimeout(() => {
-            preloader.style.opacity = "0";
-            preloader.style.pointerEvents = "none";
-        }, 500);
-        setTimeout(() => { preloader.style.display = "none"; }, 900);
-    }
-});
+---------------------------------------------------*/
+#preloader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 9999;
+}
 
-/* -------------------------------
+.loader-text {
+  color: #ff67b3;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #555;
+  border-top-color: #ff67b3;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* -------------------------------------------------
+   HEADER
+---------------------------------------------------*/
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  padding: 18px 50px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 105, 180, 0.3);
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.logo span {
+  color: #ff67b3;
+}
+
+.navbar a {
+  margin-left: 30px;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #ff67b3;
+}
+
+/* -------------------------------------------------
    THEME TOGGLE
--------------------------------- */
-const toggleBtn = document.getElementById("theme-toggle");
-toggleBtn?.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
-
-    // store in localStorage
-    const mode = document.body.classList.contains("light-mode") ? "light" : "dark";
-    localStorage.setItem("portfolio-theme", mode);
-
-    toggleBtn.innerHTML = mode === "light" ? "🌙" : "☀️";
-});
-
-// Load saved theme on start
-document.addEventListener("DOMContentLoaded", () => {
-    const savedTheme = localStorage.getItem("portfolio-theme");
-    if (savedTheme === "light") {
-        document.body.classList.add("light-mode");
-        toggleBtn.innerHTML = "🌙";
-    }
-});
-
-/* -------------------------------
-   REVEAL ANIMATIONS
--------------------------------- */
-const revealElements = document.querySelectorAll(".reveal");
-
-function revealOnScroll() {
-    revealElements.forEach((el) => {
-        const elementTop = el.getBoundingClientRect().top;
-        const triggerPoint = window.innerHeight - 120;
-
-        if (elementTop < triggerPoint) {
-            el.classList.add("active");
-        }
-    });
+---------------------------------------------------*/
+.theme-toggle {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  background: #ff67b3;
+  color: #000;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 22px;
+  box-shadow: 0px 0px 20px #ff67b3;
+  z-index: 900;
 }
 
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
-
-/* -------------------------------
-   ACTIVE NAV LINK
--------------------------------- */
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".navbar a");
-
-window.addEventListener("scroll", () => {
-    let current = "";
-
-    sections.forEach((sec) => {
-        const top = sec.offsetTop;
-        if (pageYOffset >= top - 150) {
-            current = sec.getAttribute("id");
-        }
-    });
-
-    navLinks.forEach((a) => {
-        a.classList.remove("active");
-        if (a.getAttribute("href").includes(current)) {
-            a.classList.add("active");
-        }
-    });
-});
-
-/* -------------------------------
-   CONTACT FORM – WEB3FORMS
--------------------------------- */
-const contactForm = document.getElementById("contactForm");
-const popup = document.getElementById("popup");
-const okBtn = document.getElementById("okBtn");
-
-if (contactForm) {
-    contactForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(contactForm);
-
-        const res = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData
-        });
-
-        const result = await res.json();
-
-        if (result.success) {
-            popup.style.display = "flex";
-            contactForm.reset();
-        }
-    });
+/* -------------------------------------------------
+   HERO SECTION
+---------------------------------------------------*/
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-left: 60px;
+  background: radial-gradient(circle at center, #1a1a1a 10%, #000 80%);
 }
 
-okBtn?.addEventListener("click", () => {
-    popup.style.display = "none";
-});
-
-/* -------------------------------
-   OPTIONAL: AUTO FETCH GITHUB PROJECTS
-   (Works only if you want this section)
--------------------------------- */
-
-// Change username here
-const githubUsername = "basanikavya";
-
-async function loadGitHubRepos() {
-    try {
-        const res = await fetch(`https://api.github.com/users/${githubUsername}/repos`);
-        const repos = await res.json();
-
-        const container = document.getElementById("github-projects");
-        if (!container) return;
-
-        container.innerHTML = "";
-
-        repos.slice(0, 6).forEach(repo => {
-            container.innerHTML += `
-                <div class="project-card reveal">
-                    <h3>${repo.name}</h3>
-                    <p>${repo.description || "No description available."}</p>
-                    <div class="project-links">
-                        <a href="${repo.html_url}" target="_blank">GitHub</a>
-                    </div>
-                </div>
-            `;
-        });
-
-        revealOnScroll();
-    } catch (err) {
-        console.log("GitHub fetch failed", err);
-    }
+.hero-text h2 {
+  font-size: 48px;
 }
 
-loadGitHubRepos();
+.hero-text h2 span {
+  color: #ff67b3;
+}
+
+.hero-text p {
+  margin: 15px 0 25px;
+  font-size: 18px;
+  color: #ccc;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  background: #ff67b3;
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  box-shadow: 0px 0px 20px #ff67b3;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+/* -------------------------------------------------
+   SECTIONS
+---------------------------------------------------*/
+section {
+  padding: 100px 60px;
+}
+
+.section-title {
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #ff67b3;
+}
+
+/* -------------------------------------------------
+   SKILLS
+---------------------------------------------------*/
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.skill-card {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  border: 1px solid rgba(255,105,180,0.2);
+  box-shadow: 0 0 10px rgba(255,105,180,0.2);
+}
+
+.skill-card i {
+  font-size: 30px;
+  color: #ff67b3;
+  margin-bottom: 10px;
+}
+
+/* -------------------------------------------------
+   PROJECTS
+---------------------------------------------------*/
+.projects-grid {
+  margin-top: 40px;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+}
+
+.project-card {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,105,180,0.2);
+  box-shadow: 0 0 10px rgba(255,105,180,0.2);
+}
+
+.project-card h3 {
+  color: #ff67b3;
+}
+
+.project-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #ff67b3;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* -------------------------------------------------
+   CONTACT 
+---------------------------------------------------*/
+.contact form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact input,
+.contact textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  height: 100%; width: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-box {
+  background: #111;
+  padding: 30px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid #ff67b3;
+}
+
+/* -------------------------------------------------
+   FOOTER
+---------------------------------------------------*/
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #0a0a0a;
+  border-top: 1px solid rgba(255,105,180,0.2);
+  margin-top: 40px;
+}
+
+.footer p {
+  color: #ff67b3;
+}
+
+/* -------------------------------------------------
+   REVEAL ANIMATION
+---------------------------------------------------*/
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
