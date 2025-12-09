@@ -570,6 +570,127 @@ section {
     font-size: 0.9rem !important;
   }
 }
+/* ---------------------------
+   📱 MOBILE RESPONSIVE FIX
+   Safe patch — does NOT disturb existing design
+---------------------------- */
+
+@media (max-width: 768px) {
+
+  /* HEADER */
+  .header {
+    padding: 15px 20px;
+  }
+
+  .navbar {
+    gap: 15px;
+  }
+
+  .navbar a {
+    font-size: 15px;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-photo img {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+  }
+
+  .hero-title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .hero-btn {
+    padding: 12px 22px;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  /* SKILLS GRID */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .skill-card {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .project-card {
+    padding: 15px;
+  }
+
+  .project-card h3 {
+    font-size: 18px;
+  }
+
+  /* CONTACT FORM */
+  .contact form {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .contact input,
+  .contact textarea {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .contact button {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 15px;
+    font-size: 14px;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .hero-photo img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .navbar {
+    gap: 10px;
+  }
+
+  .navbar a {
+    font-size: 13px;
+  }
+}
+
+
 
 
 
