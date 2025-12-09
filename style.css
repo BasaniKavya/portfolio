@@ -1,297 +1,152 @@
-/* =========================
-   PREMIUM STYLE.CSS
-   Dark + Neon Pink theme
-   ========================= */
+/* ============================
+   PREMIUM SCRIPT.JS
+   ============================ */
 
-/* GLOBAL */
-:root{
-  --bg: #0a0a0a;
-  --panel: #0f0f0f;
-  --muted: #ffb6d9;
-  --accent: #ff4da6;
-  --accent-2: #ff69b4;
-  --glass: rgba(255,255,255,0.03);
-  --card: linear-gradient(145deg,#151515,#0d0d0d);
-  --radius: 12px;
-  --ff: "Poppins", Arial, sans-serif;
-}
+/* -------------------------------
+   PRELOADER
+-------------------------------- */
+window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+        setTimeout(() => {
+            preloader.style.opacity = "0";
+            preloader.style.pointerEvents = "none";
+        }, 500);
+        setTimeout(() => { preloader.style.display = "none"; }, 900);
+    }
+});
 
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:var(--ff);
-  background:var(--bg);
-  color:#fff;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.5;
-  transition:background .35s, color .35s;
-}
+/* -------------------------------
+   THEME TOGGLE
+-------------------------------- */
+const toggleBtn = document.getElementById("theme-toggle");
+toggleBtn?.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
 
-/* HEADER */
-.header{
-  position:sticky;
-  top:0;
-  z-index:999;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  padding:18px 32px;
-  background:var(--panel);
-  border-bottom:2px solid rgba(255,77,166,0.06);
-  backdrop-filter: blur(6px);
-}
-.logo{font-weight:700;letter-spacing:0.2px;font-size:20px}
-.logo span{color:var(--accent);margin-left:8px}
+    // store in localStorage
+    const mode = document.body.classList.contains("light-mode") ? "light" : "dark";
+    localStorage.setItem("portfolio-theme", mode);
 
-/* NAV */
-.navbar{display:flex;gap:18px;align-items:center}
-.navbar a{
-  color:var(--muted);
-  text-decoration:none;
-  font-weight:600;
-  padding:8px 6px;
-  position:relative;
-  transition: color .25s;
-}
-.navbar a:hover,
-.navbar a.active{ color:var(--accent); }
-.navbar a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  height:3px;
-  width:0%;
-  background:linear-gradient(90deg,var(--accent),var(--accent-2));
-  transition:width .28s;
-  border-radius:3px;
-}
-.navbar a:hover::after,
-.navbar a.active::after{ width:100%; }
+    toggleBtn.innerHTML = mode === "light" ? "🌙" : "☀️";
+});
 
-/* THEME TOGGLE */
-.theme-toggle{
-  position:fixed;
-  right:18px;
-  bottom:22px;
-  background:linear-gradient(180deg,var(--accent),var(--accent-2));
-  color:#fff;
-  padding:10px 12px;
-  border-radius:999px;
-  box-shadow:0 6px 20px rgba(255,77,166,0.18);
-  cursor:pointer;
-  z-index:12000;
-  font-size:16px;
-  user-select:none;
-  transition: transform .18s, box-shadow .18s, opacity .2s;
-}
-.theme-toggle:hover{ transform:translateY(-4px) scale(1.03); }
+// Load saved theme on start
+document.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+        toggleBtn.innerHTML = "🌙";
+    }
+});
 
-/* HERO */
-.hero{
-  padding:80px 28px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  min-height:34vh;
-  background:
-    radial-gradient(800px 400px at 10% 10%, rgba(255,77,166,0.03), transparent 6%),
-    radial-gradient(700px 300px at 95% 90%, rgba(255,77,166,0.02), transparent 6%);
-}
-.hero-text h2{
-  font-size:34px;
-  margin-bottom:12px;
-  color:#fff;
-  font-weight:700;
-}
-.hero-text h2 span{ color:var(--accent); }
-.hero-text p{ color:var(--muted); margin-bottom:18px; max-width:720px; margin-left:auto; margin-right:auto; }
-.btn{
-  display:inline-block;
-  background:linear-gradient(90deg,var(--accent),var(--accent-2));
-  color:#fff;
-  padding:12px 20px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:700;
-  box-shadow:0 12px 30px rgba(255,77,166,0.12);
-  transition: transform .18s, box-shadow .18s;
-}
-.btn:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(255,77,166,0.18); }
+/* -------------------------------
+   REVEAL ANIMATIONS
+-------------------------------- */
+const revealElements = document.querySelectorAll(".reveal");
 
-/* SECTION TITLE */
-.section-title{
-  font-size:26px;
-  margin-bottom:14px;
-  color:#fff;
-  letter-spacing:0.2px;
-}
-.project-note{ color:var(--muted); margin-bottom:12px; }
+function revealOnScroll() {
+    revealElements.forEach((el) => {
+        const elementTop = el.getBoundingClientRect().top;
+        const triggerPoint = window.innerHeight - 120;
 
-/* SKILLS GRID */
-.skills-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:14px;
-  margin-top:18px;
-  max-width:1100px;
-  margin-left:auto;
-  margin-right:auto;
-}
-.skill-card{
-  background:var(--card);
-  border:1px solid rgba(255,77,166,0.06);
-  padding:18px;
-  border-radius:12px;
-  font-weight:700;
-  color:var(--muted);
-  display:flex;
-  align-items:center;
-  gap:10px;
-  justify-content:center;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.45);
-  transition: transform .22s, box-shadow .22s;
-}
-.skill-card i{ color:var(--accent); font-size:18px; }
-.skill-card:hover{ transform:translateY(-6px); box-shadow:0 22px 48px rgba(255,77,166,0.06) }
-
-/* PROJECTS GRID */
-.projects-grid{
-  margin-top:22px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
-  max-width:1200px;
-  margin-left:auto;
-  margin-right:auto;
-  padding-bottom:18px;
-}
-.project-card{
-  background:var(--card);
-  border:1px solid rgba(255,77,166,0.06);
-  padding:20px;
-  border-radius:var(--radius);
-  min-height:140px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  transition: transform .25s, box-shadow .25s, border-color .25s;
-}
-.project-card h3{ color:var(--muted); margin-bottom:8px; font-size:18px; }
-.project-card p{ color:#d9a9c8; font-size:14px; margin-bottom:12px; flex:1; }
-.project-links{ display:flex; gap:10px; align-items:center; margin-top:12px; }
-.project-links a{
-  padding:8px 12px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:700;
-  background: rgba(0,0,0,0.25);
-  color:#fff;
-  border:1px solid rgba(255,255,255,0.03);
-  transition: background .18s, transform .12s;
-}
-.project-links a:hover{ transform:translateY(-3px); background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#fff; }
-
-/* CONTACT */
-.contact-form{
-  max-width:700px;
-  margin:18px auto 60px auto;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-.contact-form input,
-.contact-form textarea{
-  padding:14px 16px;
-  background:rgba(255,255,255,0.02);
-  border:1px solid rgba(255,77,166,0.06);
-  border-radius:10px;
-  color:#fff;
-  font-size:15px;
-  outline:none;
-  transition: box-shadow .18s, border-color .18s;
-}
-.contact-form input:focus,
-.contact-form textarea:focus{
-  box-shadow:0 10px 28px rgba(255,77,166,0.06);
-  border-color:var(--accent);
+        if (elementTop < triggerPoint) {
+            el.classList.add("active");
+        }
+    });
 }
 
-/* POPUP (success) */
-.popup{ display:none; position:fixed; inset:0; z-index:2000; align-items:center; justify-content:center; background:rgba(0,0,0,0.6) }
-.popup .popup-box{
-  background:var(--panel);
-  padding:22px;
-  border-radius:12px;
-  width:320px;
-  text-align:center;
-  border:2px solid rgba(255,77,166,0.08);
-  box-shadow:0 18px 48px rgba(0,0,0,0.6);
-}
-.popup .btn.small{ padding:8px 14px; font-size:14px; margin-top:12px }
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
 
-/* PRELOADER */
-#preloader{
-  position:fixed;
-  inset:0;
-  z-index:12000;
-  background:var(--bg);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:16px;
-}
-.loader-text{ color:var(--accent); font-size:20px; font-weight:700; letter-spacing:0.3px; }
-.spinner{
-  width:56px;height:56px;border-radius:50%;
-  border:6px solid rgba(255,182,217,0.35);
-  border-top-color:var(--accent);
-  animation:spin .8s linear infinite;
-}
-@keyframes spin{ to{ transform:rotate(360deg) } }
+/* -------------------------------
+   ACTIVE NAV LINK
+-------------------------------- */
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".navbar a");
 
-/* REVEAL ANIMATION */
-.reveal{ opacity:0; transform:translateY(28px); transition:all .7s cubic-bezier(.2,.9,.2,1) }
-.reveal.active{ opacity:1; transform:none }
+window.addEventListener("scroll", () => {
+    let current = "";
 
-/* FOOTER */
-.footer{ text-align:center; padding:28px 12px; color:var(--muted); border-top:1px solid rgba(255,77,166,0.03); margin-top:28px; }
+    sections.forEach((sec) => {
+        const top = sec.offsetTop;
+        if (pageYOffset >= top - 150) {
+            current = sec.getAttribute("id");
+        }
+    });
 
-/* LIGHT MODE (toggle by adding .light-mode on body) */
-body.light-mode{
-  background:#fff;
-  color:#1b1b1b;
-}
-body.light-mode .header{ background:#fff; border-bottom:1px solid rgba(255,77,166,0.06) }
-body.light-mode .logo span{ color:var(--accent) }
-body.light-mode .navbar a{ color:var(--accent) }
-body.light-mode .skill-card,
-body.light-mode .project-card,
-body.light-mode .popup .popup-box{ background:#fff; color:#222; border-color: rgba(255,77,166,0.12) }
-body.light-mode .project-card p{ color:#444 }
-body.light-mode .contact-form input,
-body.light-mode .contact-form textarea{ background:#fff; color:#222 }
+    navLinks.forEach((a) => {
+        a.classList.remove("active");
+        if (a.getAttribute("href").includes(current)) {
+            a.classList.add("active");
+        }
+    });
+});
 
-/* RESPONSIVE */
-@media (max-width:900px){
-  .hero-text h2{ font-size:28px }
-  .header{ padding:14px 18px }
-  .navbar{ gap:12px }
-  .skills-grid{ grid-template-columns:repeat(auto-fit,minmax(120px,1fr)) }
-}
-@media (max-width:600px){
-  .hero{ padding:50px 18px }
-  .section-title{ font-size:20px }
-  .navbar{ display:none }
-}
-@media (max-width:420px){
-  .skill-card{ padding:12px; font-size:14px }
-  .project-links a{ padding:8px 10px; font-size:13px }
+/* -------------------------------
+   CONTACT FORM – WEB3FORMS
+-------------------------------- */
+const contactForm = document.getElementById("contactForm");
+const popup = document.getElementById("popup");
+const okBtn = document.getElementById("okBtn");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(contactForm);
+
+        const res = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+            popup.style.display = "flex";
+            contactForm.reset();
+        }
+    });
 }
 
-/* small niceties */
-.btn:active,.theme-toggle:active{ transform:translateY(1px) }
+okBtn?.addEventListener("click", () => {
+    popup.style.display = "none";
+});
+
+/* -------------------------------
+   OPTIONAL: AUTO FETCH GITHUB PROJECTS
+   (Works only if you want this section)
+-------------------------------- */
+
+// Change username here
+const githubUsername = "basanikavya";
+
+async function loadGitHubRepos() {
+    try {
+        const res = await fetch(`https://api.github.com/users/${githubUsername}/repos`);
+        const repos = await res.json();
+
+        const container = document.getElementById("github-projects");
+        if (!container) return;
+
+        container.innerHTML = "";
+
+        repos.slice(0, 6).forEach(repo => {
+            container.innerHTML += `
+                <div class="project-card reveal">
+                    <h3>${repo.name}</h3>
+                    <p>${repo.description || "No description available."}</p>
+                    <div class="project-links">
+                        <a href="${repo.html_url}" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            `;
+        });
+
+        revealOnScroll();
+    } catch (err) {
+        console.log("GitHub fetch failed", err);
+    }
+}
+
+loadGitHubRepos();
