@@ -362,4 +362,35 @@ section {
   .hero-title { font-size: 2.3rem; }
   .hero-subtitle { font-size: 1rem; }
 }
+/* ⭐ PROFILE PHOTO IN HERO ⭐ */
+.hero-photo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.hero-photo img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 146, 204, 0.8);
+  box-shadow: 0 0 35px rgba(255, 146, 204, 0.6);
+  backdrop-filter: blur(10px);
+  animation: popIn 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
 
