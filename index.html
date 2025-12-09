@@ -1,153 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kavya Basani | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Open Graph (thumbnail) -->
-  <meta property="og:title" content="Kavya Basani | Portfolio">
-  <meta property="og:description" content="Electronics student & Web Developer skilled in HTML, CSS & JavaScript.">
-  <meta property="og:image" content="https://basanikavya.github.io/portfolio/thumbnail.png">
-  <meta property="og:url" content="https://basanikavya.github.io/portfolio/">
-  <meta name="twitter:card" content="summary_large_image">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kavya Basani | Portfolio</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #000;
+            color: #ffc1e3;
+        }
+
+        header {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #111;
+            border-bottom: 1px solid #ff76c8;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 26px;
+            color: #ff76c8;
+        }
+
+        nav a {
+            margin-left: 20px;
+            color: #ffc1e3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        nav a:hover {
+            color: #ff76c8;
+        }
+
+        .section {
+            padding: 60px 40px;
+        }
+
+        .title {
+            font-size: 32px;
+            color: #ff76c8;
+            margin-bottom: 10px;
+        }
+
+        .about-box, .skills-box, .project-card {
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ff76c8;
+            margin-top: 20px;
+        }
+
+        .skills-list span {
+            display: inline-block;
+            background: #ff76c8;
+            color: #000;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin: 6px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .project-card {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background: #111;
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #ff76c8;
+            color: #ffc1e3;
+        }
+
+        .contact a {
+            color: #ff76c8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
 </head>
+
 <body>
-  <!-- PRELOADER -->
-  <div id="preloader" aria-hidden="true">
-    <h2 class="loader-text">Kavya's Portfolio 🚀</h2>
-    <div class="spinner" aria-hidden="true"></div>
-  </div>
 
-  <!-- THEME TOGGLE (top-right) -->
-  <div id="themeToggle" class="theme-toggle" title="Toggle theme">☀️</div>
+    <!-- HEADER -->
+    <header>
+        <h1>Kavya Basani</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-  <!-- HEADER -->
-  <header>
-    <h1 class="logo">Kavya <span>Basani</span></h1>
-
-    <nav class="desktop-nav" role="navigation" aria-label="Main navigation">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#certificates">Certificates</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <button class="menu-btn" aria-label="Open menu" id="menuBtn">☰</button>
-
-    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
-      <a href="#home" onclick="toggleMenu()">Home</a>
-      <a href="#about" onclick="toggleMenu()">About</a>
-      <a href="#skills" onclick="toggleMenu()">Skills</a>
-      <a href="#projects" onclick="toggleMenu()">Projects</a>
-      <a href="#certificates" onclick="toggleMenu()">Certificates</a>
-      <a href="#contact" onclick="toggleMenu()">Contact</a>
-    </div>
-  </header>
-
-  <!-- HOME -->
-  <section id="home" class="home reveal">
-    <h2>Hello 👋 I'm <span>Kavya Basani</span></h2>
-    <h3 class="typing" aria-live="polite"></h3>
-    <p>Electronics student & Web Developer skilled in HTML, CSS, JavaScript & Python.</p>
-    <button class="resume-btn" onclick="openResumePopup()">📄 View Resume</button>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="about reveal">
-    <div class="about-container">
-      <img src="assets/profile.jpg" alt="Kavya Basani" class="about-img" onerror="this.style.opacity=0" />
-      <div class="about-text">
-        <h2>About Me</h2>
-        <p>
-          I'm an ECE student and passionate Web Developer who loves building beautiful, modern and responsive websites.
-        </p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">🔗 LinkedIn</a>
-          <a href="https://github.com/BasaniKavya" target="_blank" rel="noopener">💻 GitHub</a>
-          <a href="https://instagram.com/" target="_blank" rel="noopener">📷 Instagram</a>
+    <!-- ABOUT -->
+    <section id="about" class="section">
+        <h2 class="title">About Me</h2>
+        <div class="about-box">
+            <p>
+                Hi! I'm <b>Kavya Basani</b>, a Web Developer passionate about creating 
+                beautiful and functional websites. I love working with modern 
+                technologies like HTML, CSS, JavaScript, and Python.
+            </p>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="skills reveal">
-    <h2>Skills</h2>
-    <p class="skills-line">HTML, CSS, JavaScript, Python, C Programming, Git & GitHub, DSA Basics, VLSI Basics</p>
-  </section>
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+        <h2 class="title">Skills</h2>
+        <div class="skills-box">
+            <div class="skills-list">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Python</span>
+                <span>IBM Certified</span>
+                <span>AWS</span>
+                <span>MATLAB</span>
+            </div>
+        </div>
+    </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="projects reveal">
-    <h2>My GitHub Projects</h2>
-    <p class="project-note">Projects below are automatically fetched from GitHub 👇</p>
-    <div id="projectsContainer" class="projects-grid" aria-live="polite"></div>
-  </section>
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+        <h2 class="title">Projects</h2>
 
-  <!-- CERTIFICATES -->
-  <section id="certificates" class="certificates reveal">
-    <h2>Certificates & Achievements</h2>
-    <div class="cert-grid">
-      <div class="cert-card" onclick="openCertPopup('Python Certification','https://certificatelink_here')">Python Certification</div>
-      <div class="cert-card" onclick="openCertPopup('Web Development Bootcamp','https://certificatelink_here')">Web Development Bootcamp</div>
-      <div class="cert-card" onclick="openCertPopup('HTML & CSS Course','https://certificatelink_here')">HTML & CSS Course</div>
-    </div>
-  </section>
+        <div class="project-card">
+            <h3>Portfolio Website</h3>
+            <p>A clean and modern personal portfolio to showcase my projects and skills.</p>
+        </div>
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact reveal">
-    <h2>Contact Me</h2>
-    <form id="contactForm" class="contact-form" aria-label="Contact form">
-      <!-- Replace / keep your web3forms access key -->
-      <input type="hidden" name="access_key" value="6e913260-9b6e-457f-974d-2cb993475cc7">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+        <div class="project-card">
+            <h3>To-Do List App</h3>
+            <p>A simple and interactive task management web app made with HTML, CSS, JS.</p>
+        </div>
+    </section>
 
-  <!-- POPUPS -->
-  <div id="resumePopup" class="popup" role="dialog" aria-hidden="true">
-    <div class="popup-content">
-      <button class="close" onclick="closeResumePopup()" aria-label="Close resume">&times;</button>
-      <h3>Resume Preview</h3>
-      <iframe src="https://drive.google.com/file/d/1k2yOcXYPGUZd-S5YlTcCPSscrDEUeywA/preview" title="Resume preview"></iframe>
-      <a href="https://drive.google.com/uc?export=download&id=1k2yOcXYPGUZd-S5YlTcCPSscrDEUeywA" target="_blank" rel="noopener" class="download-popup-btn">⬇ Download Resume</a>
-    </div>
-  </div>
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+        <h2 class="title">Contact</h2>
+        <div class="about-box contact">
+            <p>Email me at:  
+               <a href="mailto:basanikavya6@gmail.com">basanikavya6@gmail.com</a>
+            </p>
+        </div>
+    </section>
 
-  <div id="projectPopup" class="popup" role="dialog" aria-hidden="true">
-    <div class="popup-content">
-      <button class="close" onclick="closeProjectPopup()" aria-label="Close project">&times;</button>
-      <h3 id="projTitle"></h3>
-      <p id="projDesc"></p>
-      <p><strong>Tech:</strong> <span id="projTech"></span></p>
-      <div style="margin-top:12px">
-        <a id="projLive" class="download-popup-btn" target="_blank" rel="noopener">🔗 Live</a>
-        <a id="projCode" class="download-popup-btn" target="_blank" rel="noopener">💻 Code</a>
-      </div>
-    </div>
-  </div>
+    <footer>
+        © 2025 Kavya Basani | All Rights Reserved
+    </footer>
 
-  <div id="certPopup" class="popup" role="dialog" aria-hidden="true">
-    <div class="popup-content">
-      <button class="close" onclick="closeCertPopup()" aria-label="Close cert">&times;</button>
-      <h3 id="certTitle"></h3>
-      <iframe id="certFrame" title="certificate preview" style="width:100%; height:420px; border:none;"></iframe>
-    </div>
-  </div>
-
-  <div id="successPopup" class="popup" role="status" aria-hidden="true">
-    <div class="popup-content">
-      <button class="close" onclick="closeSuccessPopup()" aria-label="Close success">&times;</button>
-      <h3>Thank you! 🎉</h3>
-      <p>Your message has been sent successfully.</p>
-    </div>
-  </div>
-
-  <script src="script.js" defer></script>
 </body>
 </html>
