@@ -1,161 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kavya Basani | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kavya Basani | Portfolio</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: "Poppins", sans-serif;
-            background: #000;
-            color: #ffc1e3;
-        }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        header {
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #111;
-            border-bottom: 1px solid #ff76c8;
-        }
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        h1 {
-            margin: 0;
-            font-size: 26px;
-            color: #ff76c8;
-        }
-
-        nav a {
-            margin-left: 20px;
-            color: #ffc1e3;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        nav a:hover {
-            color: #ff76c8;
-        }
-
-        .section {
-            padding: 60px 40px;
-        }
-
-        .title {
-            font-size: 32px;
-            color: #ff76c8;
-            margin-bottom: 10px;
-        }
-
-        .about-box, .skills-box, .project-card {
-            background: #111;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #ff76c8;
-            margin-top: 20px;
-        }
-
-        .skills-list span {
-            display: inline-block;
-            background: #ff76c8;
-            color: #000;
-            padding: 6px 14px;
-            border-radius: 20px;
-            margin: 6px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .project-card {
-            margin-bottom: 20px;
-        }
-
-        footer {
-            background: #111;
-            text-align: center;
-            padding: 25px;
-            border-top: 1px solid #ff76c8;
-            color: #ffc1e3;
-        }
-
-        .contact a {
-            color: #ff76c8;
-            text-decoration: none;
-            font-weight: 600;
-        }
-    </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <h1>Kavya Basani</h1>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+  <!-- 🔥 PRELOADER -->
+  <div id="preloader">
+    <h2 class="loader-text">Kavya's Portfolio 🚀</h2>
+    <div class="spinner"></div>
+  </div>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-        <h2 class="title">About Me</h2>
-        <div class="about-box">
-            <p>
-                Hi! I'm <b>Kavya Basani</b>, a Web Developer passionate about creating 
-                beautiful and functional websites. I love working with modern 
-                technologies like HTML, CSS, JavaScript, and Python.
-            </p>
-        </div>
-    </section>
+  <!-- 🔥 THEME TOGGLE -->
+  <div id="themeToggle" class="theme-toggle">✨</div>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section">
-        <h2 class="title">Skills</h2>
-        <div class="skills-box">
-            <div class="skills-list">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>Python</span>
-                <span>IBM Certified</span>
-                <span>AWS</span>
-                <span>MATLAB</span>
-            </div>
-        </div>
-    </section>
+  <!-- 🔥 HEADER -->
+  <header class="header">
+    <h1 class="logo">Kavya<span>Basani</span></h1>
+    <nav class="navbar">
+      <a href="#home">Home</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-        <h2 class="title">Projects</h2>
+  <!-- 💗 HERO SECTION -->
+  <section id="home" class="hero reveal">
+    <div class="hero-text">
+      <h2>Hi, I'm <span>Kavya</span> 👋</h2>
+      <p>A Passionate <strong>Web Developer</strong> building clean & beautiful digital experiences.</p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </section>
 
-        <div class="project-card">
-            <h3>Portfolio Website</h3>
-            <p>A clean and modern personal portfolio to showcase my projects and skills.</p>
-        </div>
+  <!-- 💗 SKILLS SECTION -->
+  <section id="skills" class="skills reveal">
+    <h2 class="section-title">My Skills</h2>
 
-        <div class="project-card">
-            <h3>To-Do List App</h3>
-            <p>A simple and interactive task management web app made with HTML, CSS, JS.</p>
-        </div>
-    </section>
+    <div class="skills-grid">
+      <div class="skill-card"><i class="fa-brands fa-html5"></i> HTML</div>
+      <div class="skill-card"><i class="fa-brands fa-css3-alt"></i> CSS</div>
+      <div class="skill-card"><i class="fa-brands fa-js"></i> JavaScript</div>
+      <div class="skill-card"><i class="fa-brands fa-python"></i> Python</div>
+      <div class="skill-card"><i class="fa-solid fa-database"></i> SQL</div>
+      <div class="skill-card"><i class="fa-brands fa-github"></i> GitHub</div>
+    </div>
+  </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-        <h2 class="title">Contact</h2>
-        <div class="about-box contact">
-            <p>Email me at:  
-               <a href="mailto:basanikavya6@gmail.com">basanikavya6@gmail.com</a>
-            </p>
-        </div>
-    </section>
+  <!-- 💗 PROJECTS -->
+  <section id="projects" class="projects reveal">
+    <h2 class="section-title">My GitHub Projects</h2>
+    <p class="project-note">Projects below are automatically fetched from GitHub 👇</p>
 
-    <footer>
-        © 2025 Kavya Basani | All Rights Reserved
-    </footer>
+    <!-- Auto-Fetch Projects -->
+    <div id="projectsContainer" class="projects-grid"></div>
+  </section>
 
+  <!-- 💗 CONTACT -->
+  <section id="contact" class="contact reveal">
+    <h2 class="section-title">Contact Me</h2>
+
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="6e913260-9b6e-457f-974d-2cb993475cc7">
+      <input type="hidden" name="redirect" value="success.html">
+
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+
+    <!-- SUCCESS POPUP -->
+    <div id="successPopup" class="popup">
+      <div class="popup-box">
+        <h3>Thank you for contacting me! 💗</h3>
+        <button onclick="closePopup()" class="btn small">OK</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 Kavya Basani • All Rights Reserved 💗</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
 </body>
 </html>
