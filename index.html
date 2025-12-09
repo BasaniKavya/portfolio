@@ -2,35 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kavya Basani | Portfolio</title>
-
   <link rel="stylesheet" href="style.css" />
-
-  <!-- 🔥 Thumbnail preview -->
-  <meta property="og:title" content="Kavya Basani | Portfolio" />
-  <meta property="og:description" content="Electronics student & Web Developer skilled in HTML, CSS & JavaScript." />
-  <meta property="og:image" content="https://basanikavya.github.io/portfolio/thumbnail.png" />
-  <meta property="og:url" content="https://basanikavya.github.io/portfolio/" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Open Graph (thumbnail) -->
+  <meta property="og:title" content="Kavya Basani | Portfolio">
+  <meta property="og:description" content="Electronics student & Web Developer skilled in HTML, CSS & JavaScript.">
+  <meta property="og:image" content="https://basanikavya.github.io/portfolio/thumbnail.png">
+  <meta property="og:url" content="https://basanikavya.github.io/portfolio/">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
-
 <body>
-
-  <!-- 🔥 PRELOADER -->
-  <div id="preloader">
+  <!-- PRELOADER -->
+  <div id="preloader" aria-hidden="true">
     <h2 class="loader-text">Kavya's Portfolio 🚀</h2>
-    <div class="spinner"></div>
+    <div class="spinner" aria-hidden="true"></div>
   </div>
 
-  <!-- 🌗 THEME TOGGLE -->
-  <div id="themeToggle" class="theme-toggle">☀️</div>
+  <!-- THEME TOGGLE (top-right) -->
+  <div id="themeToggle" class="theme-toggle" title="Toggle theme">☀️</div>
 
   <!-- HEADER -->
   <header>
     <h1 class="logo">Kavya <span>Basani</span></h1>
 
-    <nav class="desktop-nav">
+    <nav class="desktop-nav" role="navigation" aria-label="Main navigation">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -39,9 +35,9 @@
       <a href="#contact">Contact</a>
     </nav>
 
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <button class="menu-btn" aria-label="Open menu" id="menuBtn">☰</button>
 
-    <div class="mobile-nav">
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
       <a href="#home" onclick="toggleMenu()">Home</a>
       <a href="#about" onclick="toggleMenu()">About</a>
       <a href="#skills" onclick="toggleMenu()">Skills</a>
@@ -54,7 +50,7 @@
   <!-- HOME -->
   <section id="home" class="home reveal">
     <h2>Hello 👋 I'm <span>Kavya Basani</span></h2>
-    <h3 class="typing"></h3>
+    <h3 class="typing" aria-live="polite"></h3>
     <p>Electronics student & Web Developer skilled in HTML, CSS, JavaScript & Python.</p>
     <button class="resume-btn" onclick="openResumePopup()">📄 View Resume</button>
   </section>
@@ -62,17 +58,16 @@
   <!-- ABOUT -->
   <section id="about" class="about reveal">
     <div class="about-container">
-      <img src="assets/profile.jpg" alt="Kavya Basani" class="about-img" />
+      <img src="assets/profile.jpg" alt="Kavya Basani" class="about-img" onerror="this.style.opacity=0" />
       <div class="about-text">
         <h2>About Me</h2>
         <p>
-          I'm an ECE student and passionate Web Developer who loves
-          building beautiful & responsive websites and exploring new technologies.
+          I'm an ECE student and passionate Web Developer who loves building beautiful, modern and responsive websites.
         </p>
         <div class="social-links">
-          <a href="https://www.linkedin.com/" target="_blank">🔗 LinkedIn</a>
-          <a href="https://github.com/BasaniKavya" target="_blank">💻 GitHub</a>
-          <a href="https://instagram.com/" target="_blank">📷 Instagram</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">🔗 LinkedIn</a>
+          <a href="https://github.com/BasaniKavya" target="_blank" rel="noopener">💻 GitHub</a>
+          <a href="https://instagram.com/" target="_blank" rel="noopener">📷 Instagram</a>
         </div>
       </div>
     </div>
@@ -81,18 +76,14 @@
   <!-- SKILLS -->
   <section id="skills" class="skills reveal">
     <h2>Skills</h2>
-    <p class="skills-line">
-      HTML, CSS, JavaScript, Python, C Programming, Git & GitHub, DSA Basics, VLSI Basics
-    </p>
+    <p class="skills-line">HTML, CSS, JavaScript, Python, C Programming, Git & GitHub, DSA Basics, VLSI Basics</p>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects" class="projects reveal">
     <h2>My GitHub Projects</h2>
     <p class="project-note">Projects below are automatically fetched from GitHub 👇</p>
-
-    <!-- 🔥 GitHub Auto-Projects Container -->
-    <div id="projectsContainer" class="projects-grid"></div>
+    <div id="projectsContainer" class="projects-grid" aria-live="polite"></div>
   </section>
 
   <!-- CERTIFICATES -->
@@ -108,57 +99,55 @@
   <!-- CONTACT -->
   <section id="contact" class="contact reveal">
     <h2>Contact Me</h2>
-    <form id="contactForm" class="contact-form">
-      <input type="hidden" name="access_key" value="6e913260-9b6e-457f-974d-2cb993475cc7" />
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
+    <form id="contactForm" class="contact-form" aria-label="Contact form">
+      <!-- Replace / keep your web3forms access key -->
+      <input type="hidden" name="access_key" value="6e913260-9b6e-457f-974d-2cb993475cc7">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </section>
 
   <!-- POPUPS -->
-  <div id="resumePopup" class="popup">
+  <div id="resumePopup" class="popup" role="dialog" aria-hidden="true">
     <div class="popup-content">
-      <span class="close" onclick="closeResumePopup()">&times;</span>
+      <button class="close" onclick="closeResumePopup()" aria-label="Close resume">&times;</button>
       <h3>Resume Preview</h3>
-      <iframe src="https://drive.google.com/file/d/1k2yOcXYPGUZd-S5YlTcCPSscrDEUeywA/preview"></iframe>
-      <a
-        href="https://drive.google.com/uc?export=download&id=1k2yOcXYPGUZd-S5YlTcCPSscrDEUeywA"
-        target="_blank"
-        class="download-popup-btn"
-        >⬇ Download Resume</a
-      >
+      <iframe src="https://drive.google.com/file/d/1k2yOcXYPGUZd-S5YlTcCPSscrDEUeywA/preview" title="Resume preview"></iframe>
+      <a href="https://drive.google.com/uc?export=download&id=1k2yOcXYPGUZd-S5YlTcCPSscrDEUeywA" target="_blank" rel="noopener" class="download-popup-btn">⬇ Download Resume</a>
     </div>
   </div>
 
-  <div id="certPopup" class="popup">
+  <div id="projectPopup" class="popup" role="dialog" aria-hidden="true">
     <div class="popup-content">
-      <span class="close" onclick="closeCertPopup()">&times;</span>
-      <h3 id="certTitle"></h3>
-      <iframe id="certFrame"></iframe>
-    </div>
-  </div>
-
-  <div id="projectPopup" class="popup">
-    <div class="popup-content">
-      <span class="close" onclick="closeProjectPopup()">&times;</span>
+      <button class="close" onclick="closeProjectPopup()" aria-label="Close project">&times;</button>
       <h3 id="projTitle"></h3>
       <p id="projDesc"></p>
-      <br />
-      <a id="projLive" class="download-popup-btn" target="_blank">🔗 Live Preview</a>
-      <a id="projCode" class="download-popup-btn" target="_blank">💻 Source Code</a>
+      <p><strong>Tech:</strong> <span id="projTech"></span></p>
+      <div style="margin-top:12px">
+        <a id="projLive" class="download-popup-btn" target="_blank" rel="noopener">🔗 Live</a>
+        <a id="projCode" class="download-popup-btn" target="_blank" rel="noopener">💻 Code</a>
+      </div>
     </div>
   </div>
 
-  <div id="successPopup" class="popup">
+  <div id="certPopup" class="popup" role="dialog" aria-hidden="true">
     <div class="popup-content">
-      <span class="close" onclick="closeSuccessPopup()">&times;</span>
-      <h3>Thank you for contacting me! 🎉</h3>
-      <p>Your message has been successfully sent.</p>
+      <button class="close" onclick="closeCertPopup()" aria-label="Close cert">&times;</button>
+      <h3 id="certTitle"></h3>
+      <iframe id="certFrame" title="certificate preview" style="width:100%; height:420px; border:none;"></iframe>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <div id="successPopup" class="popup" role="status" aria-hidden="true">
+    <div class="popup-content">
+      <button class="close" onclick="closeSuccessPopup()" aria-label="Close success">&times;</button>
+      <h3>Thank you! 🎉</h3>
+      <p>Your message has been sent successfully.</p>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
