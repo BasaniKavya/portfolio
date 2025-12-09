@@ -3,33 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kavya Basani | Portfolio</title>
+  <title>Kavya's Portfolio</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- 🔥 Thumbnail preview -->
-  <meta property="og:title" content="Kavya Basani | Portfolio">
-  <meta property="og:description" content="Electronics student & Web Developer skilled in HTML, CSS & JavaScript.">
-  <meta property="og:image" content="https://basanikavya.github.io/portfolio/thumbnail.png">
-  <meta property="og:url" content="https://basanikavya.github.io/portfolio/">
-  <meta name="twitter:card" content="summary_large_image">
 </head>
-<body>
-  <div id="scrollProgress"></div>
 
+<body>
+
+  <!-- 🌸 PRELOADER -->
   <div id="preloader">
     <h2 class="loader-text">Kavya's Portfolio 🚀</h2>
     <div class="spinner"></div>
   </div>
 
-  <!-- 🔥 Theme Toggle (Floating top-right) -->
-  <div id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">☀️</div>
-
-  <!-- HEADER -->
+  <!-- 🌸 HEADER -->
   <header>
-    <h1 class="logo">Kavya <span>Basani</span></h1>
+    <div class="logo"><span>Kavya</span> Basani</div>
 
-    <nav class="desktop-nav">
-      <a href="#home">Home</a>
+    <nav>
+      <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
@@ -37,146 +28,87 @@
       <a href="#contact">Contact</a>
     </nav>
 
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <div id="themeToggle" class="theme-toggle">☀️</div>
 
-    <div class="mobile-nav">
-      <a href="#home" onclick="toggleMenu()">Home</a>
-      <a href="#about" onclick="toggleMenu()">About</a>
-      <a href="#skills" onclick="toggleMenu()">Skills</a>
-      <a href="#projects" onclick="toggleMenu()">Projects</a>
-      <a href="#certificates" onclick="toggleMenu()">Certificates</a>
-      <a href="#contact" onclick="toggleMenu()">Contact</a>
-    </div>
+    <div class="menu-btn">&#9776;</div>
   </header>
-<!-- HOME -->
-<section id="home" class="home reveal">
-  <h2>Hello 👋 I'm <span>Kavya Basani</span></h2>
-  <h3 class="typing"></h3>
-  <p>Electronics student & Web Developer skilled in HTML, CSS, JavaScript & Python.</p>
-  <button class="resume-btn" onclick="openResumePopup()">📄 View Resume</button>
-</section>
 
-<!-- ABOUT -->
-<section id="about" class="about reveal">
-  <div class="about-container">
-    <img src="assets/profile.jpg" alt="Kavya Basani" class="about-img">
-    <div class="about-text">
-      <h2>About Me</h2>
-      <p>
-        I'm an ECE student and passionate Web Developer who loves
-        building beautiful & responsive websites and exploring new technologies.
-      </p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/" target="_blank">🔗 LinkedIn</a>
-        <a href="https://github.com/BasaniKavya" target="_blank">💻 GitHub</a>
-        <a href="https://instagram.com/" target="_blank">📷 Instagram</a>
+  <!-- 🌸 MOBILE NAV -->
+  <div class="mobile-nav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- 🌸 HOME -->
+  <section id="home" class="reveal">
+    <h1>Hi, I'm <span>Kavya</span> 👋</h1>
+    <p>Web Developer | ECE Student | Tech Enthusiast</p>
+  </section>
+
+  <!-- 🌸 ABOUT -->
+  <section id="about" class="reveal">
+    <h2>About Me</h2>
+    <div class="about-container">
+      <img src="your-photo.jpg" class="about-img" alt="">
+      <div class="about-text">
+        <p>
+          I'm a Web Developer skilled in HTML, CSS, JavaScript & Python.  
+          Passionate about building clean, creative websites and improving everyday!
+        </p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SKILLS -->
-<section id="skills" class="skills reveal">
-  <h2>Skills</h2>
-  <p class="skills-line">HTML, CSS, JavaScript, Python, C Programming, Git & GitHub, DSA Basics, VLSI Basics</p>
-</section>
-<!-- PROJECTS -->
-<section id="projects" class="projects reveal">
-  <h2>My GitHub Projects</h2>
-  <p class="project-note">Projects below are automatically fetched from GitHub 👇</p>
+  <!-- 🌸 SKILLS -->
+  <section id="skills" class="reveal">
+    <h2>Skills</h2>
+    <p class="skills-line">
+      HTML • CSS • JavaScript • Python • GitHub • Responsive Design
+    </p>
+  </section>
 
-  <!-- 🔥 GitHub Auto-Projects Container -->
-  <div id="projectsContainer" class="projects-grid"></div>
-</section>
-<section id="certificates" class="certificates reveal">
-  <h2>Certificates</h2>
+  <!-- 🌸 PROJECTS -->
+  <section id="projects" class="reveal">
+    <h2>My GitHub Projects</h2>
+    <p class="project-note">Projects below are automatically fetched from GitHub 👇</p>
 
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="circle"></div>
-      <h3>IBM Certification</h3>
-      <p>Completed AI — 2024</p>
+    <div id="projectsContainer" class="projects-grid"></div>
+  </section>
+
+  <!-- 🌸 CERTIFICATES -->
+  <section id="certificates" class="reveal">
+    <h2>Certificates</h2>
+    <div class="cert-grid">
+      <div class="cert-card">IBM</div>
+      <div class="cert-card">AWS</div>
+      <div class="cert-card">MATLAB</div>
     </div>
-    <div class="timeline-item">
-      <div class="circle"></div>
-      <h3>AWS Certification</h3>
-      <p>Completed Cloud — 2024</p>
+  </section>
+
+  <!-- 🌸 CONTACT -->
+  <section id="contact" class="reveal">
+    <h2>Contact Me</h2>
+
+    <form class="contact-form" id="contactForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Message..." required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- 🌸 SUCCESS POPUP -->
+  <div id="successPopup">
+    <div class="popup-content">
+      <span class="close">&times;</span>
+      <h3>Message Sent Successfully! 🎉</h3>
     </div>
-    <div class="timeline-item">
-      <div class="circle"></div>
-      <h3>MATLAB Certification</h3>
-      <p>Completed Simulation — 2023</p>
-    </div>
   </div>
-</section>
-<!-- CONTACT -->
-<section id="contact" class="contact reveal">
-  <h2>Contact Me</h2>
-  <form id="contactForm" class="contact-form">
-    <input type="hidden" name="access_key" value="6e913260-9b6e-457f-974d-2cb993475cc7">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
 
-<!-- POPUPS -->
-<div id="resumePopup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closeResumePopup()">&times;</span>
-    <h3>Resume Preview</h3>
-    <iframe src="https://drive.google.com/file/d/1k2yOcXYPGUZd-S5YlTcCPSscrDEUeywA/preview"></iframe>
-    <a href="https://drive.google.com/uc?export=download&id=1k2yOcXYPGUZd-S5YlTcCPSscrDEUeywA" target="_blank" class="download-popup-btn">⬇ Download Resume</a>
-  </div>
-</div>
-
-<div id="certPopup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closeCertPopup()">&times;</span>
-    <h3 id="certTitle"></h3>
-    <iframe id="certFrame"></iframe>
-  </div>
-</div>
-
-<div id="projectPopup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closeProjectPopup()">&times;</span>
-    <h3 id="projTitle"></h3>
-    <p id="projDesc"></p>
-    <br>
-    <a id="projLive" class="download-popup-btn" target="_blank">🔗 Live Preview</a>
-    <a id="projCode" class="download-popup-btn" target="_blank">💻 Source Code</a>
-  </div>
-</div>
-
-<div id="successPopup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closeSuccessPopup()">&times;</span>
-    <h3>Thank you for contacting me! 🎉</h3>
-    <p>Your message has been successfully sent.</p>
-  </div>
-</div>
-
-<script src="script.js"></script>
-  <footer class="wave-footer">
-  <div class="waves">
-    <div class="wave wave1"></div>
-    <div class="wave wave2"></div>
-    <div class="wave wave3"></div>
-  </div>
-  <h3>Made by Kavya Basani</h3>
-</footer>
-<!-- THEME TOGGLE BUTTON -->
-<div class="theme-toggle" id="themeToggle">🌙</div>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
