@@ -1133,6 +1133,36 @@ section {
 html {
   scroll-behavior: smooth;
 }
+/* C) Mobile Menu */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #ff99cc;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+    flex-direction: column;
+    background: rgba(0,0,0,0.9);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 160px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
 
 
 
