@@ -81,3 +81,19 @@ document.getElementById("contactForm").addEventListener("submit", () => {
     document.getElementById("successPopup").style.display = "flex";
   }, 800);
 });
+// D) Scroll Reveal
+const revealSections = document.querySelectorAll(".reveal");
+
+const revealOnScroll = () => {
+  revealSections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      sec.classList.add("reveal-visible");
+    }
+  });
+};
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+
