@@ -877,83 +877,94 @@ section {
     width: 100%;
   }
 }
-/* 📱 FINAL MOBILE FIX */
+/* ----------------------------------- */
+/*        MOBILE RESPONSIVE FIXES      */
+/* ----------------------------------- */
 @media (max-width: 768px) {
 
-  /* Hero Section Fix */
+  /* NAVBAR FIX */
+  nav ul {
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 0;
+  }
+
+  nav ul li a {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  /* HERO SECTION */
   .hero {
-    flex-direction: column !important;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero img {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  /* ABOUT SECTION */
+  .about {
+    flex-direction: column;
     text-align: center;
     padding: 20px;
-    gap: 20px;
   }
 
-  .hero-photo img {
-    width: 160px !important;
-    height: 160px !important;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto;
-    display: block;
+  .about img {
+    width: 80%;
+    margin-bottom: 20px;
   }
 
-  .hero-text {
-    width: 100% !important;
-    text-align: center;
-  }
-
-  .hero-title {
-    font-size: 2rem !important;
-    line-height: 1.3;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem !important;
-    padding: 0 10px;
-  }
-
-  .hero-btn {
-    padding: 12px 22px;
-    font-size: 1rem;
-  }
-
-  /* Navigation */
-  nav ul {
-    display: none; /* Hide nav links on mobile */
-  }
-
-  /* Sections Common */
-  section {
-    padding: 40px 20px !important;
-  }
-
-  /* Projects Section Fix */
-  .project-grid {
-    grid-template-columns: 1fr !important;
-    gap: 25px !important;
-  }
-
-  /* Skills */
+  /* SKILLS GRID */
   .skills-container {
-    flex-direction: column !important;
-    gap: 15px;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 20px;
   }
 
-  /* Contact */
-  .contact-info {
-    text-align: center !important;
-    font-size: 0.9rem;
+  /* PROJECTS SECTION */
+  .projects-container {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .project-card {
+    width: 100%;
+  }
+
+  /* CONTACT FORM */
+  .contact form {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 20px;
   }
 }
 
+/* EXTRA SMALL SCREEN FIXES */
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.7rem !important;
+
+  .skills-container {
+    grid-template-columns: 1fr;
   }
-  .hero-subtitle {
-    font-size: 0.9rem !important;
+
+  nav ul li a {
+    font-size: 14px;
+  }
+
+  h1, h2, h3 {
+    font-size: 90%;
   }
 }
+
+
 
 
 
