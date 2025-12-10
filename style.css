@@ -1120,6 +1120,20 @@ section {
     padding: 12px 24px;
   }
 }
+/* A) Improved Navbar for all devices */
+.header {
+  padding: 12px 25px;
+}
+
+.navbar a {
+  padding: 8px 12px;
+  font-size: 16px;
+}
+/* B) Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
 
 
 
