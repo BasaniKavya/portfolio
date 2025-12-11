@@ -134,6 +134,14 @@ hamburger.addEventListener("click", () => {
   navbar.classList.toggle("nav-active");
   hamburger.classList.toggle("open");
 });
+/* ========== MOBILE NAVBAR TOGGLE ========== */
+const hamburger = document.getElementById("hamburger");
+const navbar = document.querySelector(".navbar");
+
+hamburger.addEventListener("click", () => {
+  navbar.classList.toggle("nav-active");
+});
+
 
 
 
