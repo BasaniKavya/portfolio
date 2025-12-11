@@ -126,6 +126,15 @@ const revealOnScroll = () => {
 
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
+/* ------------ MOBILE MENU ------------- */
+const hamburger = document.getElementById("hamburger");
+const navbar = document.querySelector(".navbar");
+
+hamburger.addEventListener("click", () => {
+  navbar.classList.toggle("nav-active");
+  hamburger.classList.toggle("open");
+});
+
 
 
 
