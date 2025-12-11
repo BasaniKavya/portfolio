@@ -376,3 +376,80 @@ section {
     padding: 70px 25px;
   }
 }
+/* -------------------------------------------------
+   FIXED MOBILE HERO RESPONSIVENESS (SAFE OVERRIDES)
+---------------------------------------------------*/
+
+/* Ensures hero layout does not break on mobile */
+@media (max-width: 768px) {
+
+  .premium-hero {
+    padding: 120px 20px 60px;
+    height: auto;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Keep photo centered and spaced correctly */
+  .hero-photo {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-photo img {
+    width: 180px;
+    height: 180px;
+    border-width: 4px;
+  }
+
+  /* Fix title & subtitle spacing */
+  .hero-title {
+    font-size: 30px !important;
+    line-height: 38px;
+    margin-bottom: 12px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px !important;
+    line-height: 24px;
+    padding: 0 10px;
+    max-width: 90%;
+    margin: 0 auto 20px;
+  }
+
+  /* Fix hero button width & spacing */
+  .hero-btn {
+    width: 85%;
+    margin: 10px auto 0;
+    display: block;
+    padding: 14px 0;
+    font-size: 17px;
+  }
+}
+
+/* -------------------------------------------------
+   EXTRA SMALL (MAX 480PX)
+---------------------------------------------------*/
+@media (max-width: 480px) {
+
+  .premium-hero {
+    padding: 140px 15px 60px;
+  }
+
+  .hero-photo img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-title {
+    font-size: 26px !important;
+  }
+
+  .hero-subtitle {
+    font-size: 15px !important;
+  }
+}
+
+
