@@ -41,40 +41,40 @@ document.getElementById("themeToggle").addEventListener("click", () => {
     document.body.style.background = "#0a0f1a";
   }
 });
-
-/* ---------------- FETCH GITHUB PROJECTS ---------------- */
-const username = "basanikavya"; // Your GitHub username
+/* ---------------- FETCH GITHUB PROJECTS WITH LIVE DEMO ---------------- */
+const username = "basanikavya"; 
 const projectsContainer = document.getElementById("projectsContainer");
 
 async function fetchProjects() {
   try {
     const response = await fetch(`https://api.github.com/users/${username}/repos`);
     const repos = await response.json();
-repos.slice(0, 6).forEach(repo => {
-  const card = document.createElement("div");
-  card.classList.add("project-card");
 
-  const liveDemoLink = `https://basanikavya.github.io/${repo.name}/`;
+    repos.slice(0, 6).forEach(repo => {
+      const card = document.createElement("div");
+      card.classList.add("project-card");
 
-  card.innerHTML = `
-    <h3>${repo.name}</h3>
-    <p>${repo.description || "No description available."}</p>
+      const liveDemo = `https://${username}.github.io/${repo.name}/`;
 
-    <div class="project-links">
-      <a href="${liveDemoLink}" target="_blank" class="live-btn">Live Demo</a>
-      <a href="${repo.html_url}" target="_blank" class="live-btn secondary-btn">Source Code</a>
-    </div>
-  `;
+      card.innerHTML = `
+        <h3>${repo.name}</h3>
+        <p>${repo.description || "No description available."}</p>
 
-  projectsContainer.appendChild(card);
-});
+        <div class="project-links">
+          <a href="${repo.html_url}" target="_blank">View Code →</a>
+          <a href="${liveDemo}" target="_blank">Live Demo →</a>
+        </div>
+      `;
+
+      projectsContainer.appendChild(card);
+    });
+
   } catch (error) {
     console.error("GitHub API Error:", error);
   }
 }
 
 fetchProjects();
-
 /* ---------------- CONTACT FORM SUCCESS POPUP ---------------- */
 function closePopup() {
   document.getElementById("successPopup").style.display = "none";
@@ -99,6 +99,7 @@ const revealOnScroll = () => {
 
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
+
 
 
 
