@@ -60,37 +60,43 @@ async function fetchProjects() {
     const repos = await response.json();
 
     projectsContainer.innerHTML = ""; // remove loader
+     repos.slice(0, 6).forEach(repo => {
+  const card = document.createElement("div");
+  card.classList.add("project-card");
 
-    repos.slice(0, 6).forEach(repo => {
-      const card = document.createElement("div");
-      card.classList.add("project-card");
+  // Custom thumbnails
+  const customThumbnails = {
+    "todo-app": "thumbnailt.png",
+    "portfolio": "thumbnail.png"
+  };
 
-      // Auto-thumbnail (placeholder)
-      const thumbnailURL = `https://opengraph.githubassets.com/1/${username}/${repo.name}`;
+  // Choose thumbnail: custom → otherwise default GitHub OpenGraph
+  const thumbnailURL = customThumbnails[repo.name]
+    ? customThumbnails[repo.name]
+    : `https://opengraph.githubassets.com/1/${username}/${repo.name}`;
 
-      // Tags (basic detection)
-      let tags = "";
-      if (repo.language) {
-        tags = `<span class="tag">${repo.language}</span>`;
-      }
+  // Tags (basic detection)
+  let tags = "";
+  if (repo.language) {
+    tags = `<span class="tag">${repo.language}</span>`;
+  }
 
-      card.innerHTML = `
-        <img src="${thumbnailURL}" class="project-thumb" alt="${repo.name} Thumbnail">
+  card.innerHTML = `
+    <img src="${thumbnailURL}" class="project-thumb" alt="${repo.name} Thumbnail">
 
-        <h3>${repo.name}</h3>
-        <p>${repo.description || "No description available."}</p>
+    <h3>${repo.name}</h3>
+    <p>${repo.description || "No description available."}</p>
 
-        <div class="project-tags">${tags}</div>
+    <div class="project-tags">${tags}</div>
 
-        <div class="project-buttons">
-          <a href="${repo.html_url}" target="_blank" class="btn-code">View Code →</a>
-          <a href="https://${username}.github.io/${repo.name}/" target="_blank" class="btn-live">Live Demo →</a>
-        </div>
-      `;
+    <div class="project-buttons">
+      <a href="${repo.html_url}" target="_blank" class="btn-code">View Code →</a>
+      <a href="https://${username}.github.io/${repo.name}/" target="_blank" class="btn-live">Live Demo →</a>
+    </div>
+  `;
 
-      projectsContainer.appendChild(card);
-    });
-
+  projectsContainer.appendChild(card);
+});  
   } catch (error) {
     console.error("GitHub API Error:", error);
   }
@@ -121,6 +127,7 @@ const revealOnScroll = () => {
 
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
+
 
 
 
