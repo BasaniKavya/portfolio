@@ -41,12 +41,11 @@ document.getElementById("themeToggle").addEventListener("click", () => {
     document.body.style.background = "#0a0f1a";
   }
 });
-/* ---------------- FETCH GITHUB PROJECTS (ENHANCED) ---------------- */
 
+/* ---------------- FETCH GITHUB PROJECTS ---------------- */
 const username = "basanikavya";
 const projectsContainer = document.getElementById("projectsContainer");
 
-// Loading animation
 projectsContainer.innerHTML = `
   <div class="loader-projects">
     <div class="spinner"></div>
@@ -59,50 +58,43 @@ async function fetchProjects() {
     const response = await fetch(`https://api.github.com/users/${username}/repos`);
     const repos = await response.json();
 
-    projectsContainer.innerHTML = ""; // remove loader
- repos.slice(0, 6).forEach(repo => {
-  const card = document.createElement("div");
-  card.classList.add("project-card");
+    projectsContainer.innerHTML = "";
 
-  // Custom thumbnails (MUST match exact GitHub repo names)
-const customThumbnails = {
-  "todo-app": "thumbnailt.png",
-  "DigitalPortfolio": "thumbnail.png"
-};
-  // Use custom thumbnails if available, otherwise fallback to GitHub auto thumbnail
-  const thumbnailURL = customThumbnails[repo.name]
-    ? customThumbnails[repo.name]
-    : `https://opengraph.githubassets.com/1/${username}/${repo.name}`;
+    const customThumbnails = {
+      "todo-app": "thumbnailt.png",
+      "DigitalPortfolio": "thumbnail.png"
+    };
 
-  // Tags detection
-  let tags = "";
-  if (repo.language) {
-    tags = `<span class="tag">${repo.language}</span>`;
-  }
+    repos.slice(0, 6).forEach(repo => {
+      const card = document.createElement("div");
+      card.classList.add("project-card");
 
-  card.innerHTML = `
-    <img src="${thumbnailURL}" class="project-thumb" alt="${repo.name} Thumbnail">
+      const thumbnailURL = customThumbnails[repo.name]
+        ? customThumbnails[repo.name]
+        : `https://opengraph.githubassets.com/1/${username}/${repo.name}`;
 
-    <h3>${repo.name}</h3>
-    <p>${repo.description || "No description available."}</p>
+      const tags = repo.language ? `<span class="tag">${repo.language}</span>` : "";
 
-    <div class="project-tags">${tags}</div>
-
-    <div class="project-buttons">
-      <a href="${repo.html_url}" target="_blank" class="btn-code">View Code →</a>
-      <a href="https://${username}.github.io/${repo.name}/" target="_blank" class="btn-live">Live Demo →</a>
-    </div>
-  `;
-
-  projectsContainer.appendChild(card);
-});
+      card.innerHTML = `
+        <img src="${thumbnailURL}" class="project-thumb" alt="${repo.name} Thumbnail">
+        <h3>${repo.name}</h3>
+        <p>${repo.description || "No description available."}</p>
+        <div class="project-tags">${tags}</div>
+        <div class="project-buttons">
+          <a href="${repo.html_url}" target="_blank" class="btn-code">View Code →</a>
+          <a href="https://${username}.github.io/${repo.name}/" target="_blank" class="btn-live">Live Demo →</a>
+        </div>
+      `;
+      projectsContainer.appendChild(card);
+    });
   } catch (error) {
     console.error("GitHub API Error:", error);
   }
 }
 
 fetchProjects();
-/* ---------------- CONTACT FORM SUCCESS POPUP ---------------- */
+
+/* ---------------- CONTACT POPUP ---------------- */
 function closePopup() {
   document.getElementById("successPopup").style.display = "none";
 }
@@ -112,20 +104,7 @@ document.getElementById("contactForm").addEventListener("submit", () => {
     document.getElementById("successPopup").style.display = "flex";
   }, 800);
 });
-// D) Scroll Reveal
-const revealSections = document.querySelectorAll(".reveal");
 
-const revealOnScroll = () => {
-  revealSections.forEach(sec => {
-    const top = sec.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      sec.classList.add("reveal-visible");
-    }
-  });
-};
-
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
 /* ------------ MOBILE MENU ------------- */
 const hamburger = document.getElementById("hamburger");
 const navbar = document.querySelector(".navbar");
@@ -134,22 +113,3 @@ hamburger.addEventListener("click", () => {
   navbar.classList.toggle("nav-active");
   hamburger.classList.toggle("open");
 });
-/* ========== MOBILE NAVBAR TOGGLE ========== */
-const hamburger = document.getElementById("hamburger");
-const navbar = document.querySelector(".navbar");
-
-hamburger.addEventListener("click", () => {
-  navbar.classList.toggle("nav-active");
-});
-
-
-
-
-
-
-
-
-
-
-
-
