@@ -64,12 +64,11 @@ async function fetchProjects() {
   const card = document.createElement("div");
   card.classList.add("project-card");
 
-  // Custom thumbnails
-  const customThumbnails = {
-    "todo-app": "thumbnailt.png",
-    "portfolio": "thumbnail.png"
-  };
-
+  // Custom thumbnails (MUST match exact GitHub repo names)
+const customThumbnails = {
+  "todo-app": "thumbnailt.png",
+  "DigitalPortfolio": "thumbnail.png"
+};
   // Use custom thumbnails if available, otherwise fallback to GitHub auto thumbnail
   const thumbnailURL = customThumbnails[repo.name]
     ? customThumbnails[repo.name]
@@ -127,6 +126,7 @@ const revealOnScroll = () => {
 
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
+
 
 
 
