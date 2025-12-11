@@ -41,28 +41,50 @@ document.getElementById("themeToggle").addEventListener("click", () => {
     document.body.style.background = "#0a0f1a";
   }
 });
-/* ---------------- FETCH GITHUB PROJECTS WITH LIVE DEMO ---------------- */
-const username = "basanikavya"; 
+/* ---------------- FETCH GITHUB PROJECTS (ENHANCED) ---------------- */
+
+const username = "basanikavya";
 const projectsContainer = document.getElementById("projectsContainer");
+
+// Loading animation
+projectsContainer.innerHTML = `
+  <div class="loader-projects">
+    <div class="spinner"></div>
+    <p>Loading Projects...</p>
+  </div>
+`;
 
 async function fetchProjects() {
   try {
     const response = await fetch(`https://api.github.com/users/${username}/repos`);
     const repos = await response.json();
 
+    projectsContainer.innerHTML = ""; // remove loader
+
     repos.slice(0, 6).forEach(repo => {
       const card = document.createElement("div");
       card.classList.add("project-card");
 
-      const liveDemo = `https://${username}.github.io/${repo.name}/`;
+      // Auto-thumbnail (placeholder)
+      const thumbnailURL = `https://opengraph.githubassets.com/1/${username}/${repo.name}`;
+
+      // Tags (basic detection)
+      let tags = "";
+      if (repo.language) {
+        tags = `<span class="tag">${repo.language}</span>`;
+      }
 
       card.innerHTML = `
+        <img src="${thumbnailURL}" class="project-thumb" alt="${repo.name} Thumbnail">
+
         <h3>${repo.name}</h3>
         <p>${repo.description || "No description available."}</p>
 
-        <div class="project-links">
-          <a href="${repo.html_url}" target="_blank">View Code →</a>
-          <a href="${liveDemo}" target="_blank">Live Demo →</a>
+        <div class="project-tags">${tags}</div>
+
+        <div class="project-buttons">
+          <a href="${repo.html_url}" target="_blank" class="btn-code">View Code →</a>
+          <a href="https://${username}.github.io/${repo.name}/" target="_blank" class="btn-live">Live Demo →</a>
         </div>
       `;
 
@@ -99,6 +121,7 @@ const revealOnScroll = () => {
 
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
+
 
 
 
