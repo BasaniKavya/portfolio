@@ -1329,6 +1329,35 @@ html {
   background: var(--pink);
   color: #000;
 }
+/* MOBILE NAV */
+.navbar {
+  position: absolute;
+  top: 70px;
+  right: -100%;
+  width: 200px;
+  background: #111;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: 0.4s ease;
+  z-index: 2000;
+}
+
+.navbar a {
+  color: var(--pink);
+  font-size: 18px;
+}
+
+.nav-active {
+  right: 10px;
+}
+
+/* Hamburger animation */
+.hamburger.open i {
+  color: var(--pink);
+}
+
 
 
 
