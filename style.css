@@ -1392,6 +1392,27 @@ html {
     display: block;
   }
 }
+/* ---------- VERY SMALL MOBILE (max 480px) ---------- */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+  }
+
+  .hero-photo img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-btn {
+    font-size: 15px;
+    padding: 12px 25px;
+  }
+}
+
 
 
 
