@@ -60,7 +60,7 @@ async function fetchProjects() {
     const repos = await response.json();
 
     projectsContainer.innerHTML = ""; // remove loader
-     repos.slice(0, 6).forEach(repo => {
+ repos.slice(0, 6).forEach(repo => {
   const card = document.createElement("div");
   card.classList.add("project-card");
 
@@ -70,12 +70,12 @@ async function fetchProjects() {
     "portfolio": "thumbnail.png"
   };
 
-  // Choose thumbnail: custom → otherwise default GitHub OpenGraph
+  // Use custom thumbnails if available, otherwise fallback to GitHub auto thumbnail
   const thumbnailURL = customThumbnails[repo.name]
     ? customThumbnails[repo.name]
     : `https://opengraph.githubassets.com/1/${username}/${repo.name}`;
 
-  // Tags (basic detection)
+  // Tags detection
   let tags = "";
   if (repo.language) {
     tags = `<span class="tag">${repo.language}</span>`;
@@ -96,7 +96,7 @@ async function fetchProjects() {
   `;
 
   projectsContainer.appendChild(card);
-});  
+});
   } catch (error) {
     console.error("GitHub API Error:", error);
   }
@@ -127,6 +127,7 @@ const revealOnScroll = () => {
 
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
+
 
 
 
