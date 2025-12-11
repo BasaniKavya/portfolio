@@ -1357,6 +1357,42 @@ html {
 .hamburger.open i {
   color: var(--pink);
 }
+/* ========== MOBILE NAVBAR ========== */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 2000;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    width: 180px;
+    text-align: right;
+    gap: 15px;
+  }
+
+  .navbar a {
+    padding: 10px 0;
+  }
+
+  .navbar.nav-active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
 
 
 
