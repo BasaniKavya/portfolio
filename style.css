@@ -494,6 +494,13 @@ section {
   box-shadow: 0 0 12px rgba(255,105,180,0.4);
   border: 1px solid rgba(255,105,180,0.6);
 }
+.project-card,
+.skill-card,
+.hero-btn {
+  will-change: transform;
+}
+
+
 
 
 
