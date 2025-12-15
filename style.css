@@ -499,6 +499,107 @@ section {
 .hero-btn {
   will-change: transform;
 }
+/* ================= HERO ALIGNMENT ================= */
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: auto;
+  padding: 3rem 1.5rem;
+}
+
+/* TEXT */
+.hero-text {
+  max-width: 520px;
+}
+
+.hero-name {
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+
+.hero-role {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  color: var(--pink);
+}
+
+.hero-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+.hero-highlight {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* BUTTONS */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+
+.hero-btn {
+  padding: 0.7rem 1.4rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.hero-btn.primary {
+  background: var(--pink);
+  color: #000;
+}
+
+.hero-btn.secondary {
+  border: 1px solid var(--pink);
+  color: var(--pink);
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* IMAGE */
+.hero-photo img {
+  width: 230px;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--pink);
+}
+
+/* ================= MOBILE VIEW ================= */
+
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-photo img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero-name {
+    font-size: 2.1rem;
+  }
+}
+
 
 
 
