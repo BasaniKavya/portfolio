@@ -113,3 +113,19 @@ hamburger.addEventListener("click", () => {
   navbar.classList.toggle("nav-active");
   hamburger.classList.toggle("open");
 });
+/* ================= SAFE PROJECT THUMBNAIL FALLBACK ================= */
+
+function applyThumbnailFallback() {
+  const images = document.querySelectorAll(".project-thumb");
+
+  images.forEach(img => {
+    img.onerror = () => {
+      img.src = document.getElementById("defaultProjectThumb").src;
+    };
+  });
+}
+
+/* Wait until projects are loaded */
+setTimeout(applyThumbnailFallback, 2000);
+
+
