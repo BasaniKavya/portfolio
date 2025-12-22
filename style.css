@@ -612,6 +612,20 @@ section {
 .project-card:hover .project-thumb {
   transform: scale(1.03);
 }
+.contact-details {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.contact-details p {
+  margin: 6px 0;
+}
+
+.contact-details a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 
 
 
