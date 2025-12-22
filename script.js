@@ -74,17 +74,26 @@ async function fetchProjects() {
         : `https://opengraph.githubassets.com/1/${username}/${repo.name}`;
 
       const tags = repo.language ? `<span class="tag">${repo.language}</span>` : "";
-
       card.innerHTML = `
-        <img src="${thumbnailURL}" class="project-thumb" alt="${repo.name} Thumbnail">
-        <h3>${repo.name}</h3>
-        <p>${repo.description || "No description available."}</p>
-        <div class="project-tags">${tags}</div>
-        <div class="project-buttons">
-          <a href="${repo.html_url}" target="_blank" class="btn-code">View Code →</a>
-          <a href="https://${username}.github.io/${repo.name}/" target="_blank" class="btn-live">Live Demo →</a>
-        </div>
-      `;
+  <img 
+    src="${thumbnailURL}"
+    onerror="this.onerror=null; this.src='thumbnail.png';"
+    class="project-thumb"
+    alt="${repo.name} Project Thumbnail"
+  />
+
+  <h3>${repo.name}</h3>
+  <p>${repo.description || "No description available."}</p>
+
+  <div class="project-tags">${tags}</div>
+
+  <div class="project-buttons">
+    <a href="${repo.html_url}" target="_blank" class="btn-code">View Code →</a>
+    <a href="https://${username}.github.io/${repo.name}/" target="_blank" class="btn-live">Live Demo →</a>
+  </div>
+`;
+
+    
       projectsContainer.appendChild(card);
     });
   } catch (error) {
@@ -127,5 +136,6 @@ function applyThumbnailFallback() {
 
 /* Wait until projects are loaded */
 setTimeout(applyThumbnailFallback, 2000);
+
 
 
