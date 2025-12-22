@@ -136,6 +136,15 @@ function applyThumbnailFallback() {
 
 /* Wait until projects are loaded */
 setTimeout(applyThumbnailFallback, 2000);
+/* -------- CLOSE MOBILE MENU AFTER CLICK -------- */
+document.querySelectorAll(".navbar a").forEach(link => {
+  link.addEventListener("click", () => {
+    navbar.classList.remove("nav-active");
+    hamburger.classList.remove("open");
+  });
+});
+
+
 
 
 
