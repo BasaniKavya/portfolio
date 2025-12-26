@@ -143,6 +143,15 @@ document.querySelectorAll(".navbar a").forEach(link => {
     hamburger.classList.remove("open");
   });
 });
+/* ---------- FINAL MOBILE MENU FIX ---------- */
+document.querySelectorAll(".navbar a").forEach(link => {
+  link.addEventListener("click", () => {
+    navbar.classList.remove("nav-active");
+    hamburger.classList.remove("open");
+  });
+});
+
+
 
 
 
